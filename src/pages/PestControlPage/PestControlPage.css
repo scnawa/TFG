@@ -1,0 +1,48 @@
+.pest-page {
+  min-height: calc(100vh - 80px);
+  background: #f4f6f8;
+  color: #0e2a47;
+}
+
+.pest-page .project-hero {
+  padding: 100px 10%;
+  background: #0e2a47;
+  color: white;
+}
+
+.pest-page .project-label {
+  font-family: "Plex Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #e8551c;
+}
+
+.pest-page h1 {
+  font-family: "Big Shoulders", sans-serif;
+  font-size: clamp(60px, 10vw, 140px);
+  line-height: 0.9;
+  margin: 20px 0;
+}
+
+.pest-page .project-description {
+  max-width: 650px;
+  font-family: "Plex Mono", monospace;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #c7d6e5;
+}
+
+.pest-page .project-content {
+  padding: 80px 10%;
+}
+
+.pest-page h2 {
+  font-family: "Big Shoulders", sans-serif;
+  font-size: 40px;
+}
+
+.pest-page .project-content p {
+  max-width: 650px;
+  font-family: "Plex Mono", monospace;
+  line-height: 1.8;
+}

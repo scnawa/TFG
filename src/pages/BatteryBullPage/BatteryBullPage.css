@@ -1,0 +1,48 @@
+.battery-page {
+  min-height: calc(100vh - 80px);
+  background: #f4f6f8;
+  color: #0e2a47;
+}
+
+.battery-page .project-hero {
+  padding: 100px 10%;
+  background: #0e2a47;
+  color: white;
+}
+
+.battery-page .project-label {
+  font-family: "Plex Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #e8551c;
+}
+
+.battery-page h1 {
+  font-family: "Big Shoulders", sans-serif;
+  font-size: clamp(60px, 10vw, 140px);
+  line-height: 0.9;
+  margin: 20px 0;
+}
+
+.battery-page .project-description {
+  max-width: 650px;
+  font-family: "Plex Mono", monospace;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #c7d6e5;
+}
+
+.battery-page .project-content {
+  padding: 80px 10%;
+}
+
+.battery-page h2 {
+  font-family: "Big Shoulders", sans-serif;
+  font-size: 40px;
+}
+
+.battery-page .project-content p {
+  max-width: 650px;
+  font-family: "Plex Mono", monospace;
+  line-height: 1.8;
+}
