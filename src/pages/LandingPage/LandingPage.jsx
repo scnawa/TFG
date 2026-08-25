@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import Navbar from '../../components/Navbar';
 import './LandingPage.css';
 
@@ -9,54 +11,56 @@ function LandingPage() {
       <main>
         {/* HERO */}
         <section className="tfg-hero">
-          <div className="eyebrow">
-            COMMERCIAL FIT-OUT &amp; BUILDING SERVICES
-          </div>
-
-          <h1>
-            COMMERCIAL
-            <br />
-            FIT-OUTS,
-            <br />
-            BUILT TO <em>SCHEDULE.</em>
-          </h1>
-
-          <p className="sub">
-            Store fit-outs, refreshes and building works for national
-            retail and commercial clients — mobilised fast, managed end
-            to end.
-          </p>
-
-          <div className="dimline">
-            <div className="tick"></div>
-            <div className="line"></div>
-
-            <div className="label">
-              NATIONWIDE&nbsp; · &nbsp;30 YEARS ON SITE
+          <div className="content-container">
+            <div className="eyebrow">
+              COMMERCIAL FIT-OUT &amp; BUILDING SERVICES
             </div>
 
-            <div className="line"></div>
-            <div className="tick"></div>
-          </div>
+            <h1>
+              COMMERCIAL
+              <br />
+              FIT-OUTS,
+              <br />
+              BUILT TO <em>SCHEDULE.</em>
+            </h1>
 
-          <a href="#contact" className="cta">
-            BOOK A CONSULTATION
-          </a>
+            <p className="sub">
+              Store fit-outs, refreshes and building works for national
+              retail and commercial clients — mobilised fast, managed end
+              to end.
+            </p>
 
-          <div className="titleblock">
-            <div className="row">
-              <span>SHEET</span>
-              <span>FO-01</span>
+            <div className="dimline">
+              <div className="tick"></div>
+              <div className="line"></div>
+
+              <div className="label">
+                NATIONWIDE&nbsp; · &nbsp;30 YEARS ON SITE
+              </div>
+
+              <div className="line"></div>
+              <div className="tick"></div>
             </div>
 
-            <div className="row">
-              <span>SCALE</span>
-              <span>NTS</span>
-            </div>
+            <Link to="/contact-page" className="cta">
+              BOOK A CONSULTATION
+            </Link>
 
-            <div className="row">
-              <span>REV</span>
-              <span>2026.03</span>
+            <div className="titleblock">
+              <div className="row">
+                <span>SHEET</span>
+                <span>FO-01</span>
+              </div>
+
+              <div className="row">
+                <span>SCALE</span>
+                <span>NTS</span>
+              </div>
+
+              <div className="row">
+                <span>REV</span>
+                <span>2026.03</span>
+              </div>
             </div>
           </div>
         </section>

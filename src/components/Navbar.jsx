@@ -23,48 +23,12 @@ function Navbar() {
 
       <div className="links">
         <Link to="/">HOME</Link>
-
-        <a href="/#about">ABOUT US</a>
-
-        {/* ---------- PROJECTS DROPDOWN ---------- */}
-
-        <div className="projects-menu">
-          <button
-            className="projects-button"
-            onClick={() => setProjectsOpen(!projectsOpen)}
-          >
-            PROJECTS
-          </button>
-
-          {projectsOpen && (
-            <div className="projects-dropdown">
-              <Link
-                to="/security"
-                onClick={() => setProjectsOpen(false)}
-              >
-                Security
-              </Link>
-
-              <Link
-                to="/pest-control"
-                onClick={() => setProjectsOpen(false)}
-              >
-                Pest Control
-              </Link>
-
-              <Link
-                to="/battery-bull"
-                onClick={() => setProjectsOpen(false)}
-              >
-                Battery Bull
-              </Link>
-            </div>
-          )}
-        </div>
+        <Link to="/about">ABOUT US</Link>
+        <Link to="/security">SECURITY</Link> 
+        <Link to="/pest-control">PEST CONTROL</Link>
+        <Link to="/contact-page">CONTACT US</Link>
       </div>
-
       {/* ---------- PHONE ---------- */}
-
       <div className="phone">
         +61 2 9693 2699
       </div>
