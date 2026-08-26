@@ -9,7 +9,7 @@ function AboutPage() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const slides = [
     {
-        image: 'public/images/stock-cleaning.jpg',
+        image: '/images/stock-cleaning.jpg',
         label: '01 / WHO WE ARE',
         title: (
         <>
@@ -22,7 +22,7 @@ function AboutPage() {
         'Total Facility Group delivers practical commercial fit-out, building and facility solutions.',
     },
     {
-        image: 'public/images/stock-handshake.jpg',
+        image: '/images/stock-handshake.jpg',
         label: '02 / WHAT WE DO',
         title: (
         <>
@@ -35,7 +35,7 @@ function AboutPage() {
         'We coordinate people, trades and projects to deliver reliable outcomes.',
     },
     {
-        image: 'public/images/battery-bull.jpg',
+        image: '/images/battery-bull.jpg',
         label: '03 / OUR APPROACH',
         title: (
         <>

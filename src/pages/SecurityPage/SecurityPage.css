@@ -1,13 +1,22 @@
+/* ---------- PAGE ---------- */
+
 .security-page {
-  min-height: calc(100vh - 80px);
+  min-height: 100vh;
   background: #f4f6f8;
   color: #0e2a47;
+
+  /* Prevent content from sitting underneath the fixed navbar */
+  padding-top: 80px;
 }
+
+
+/* ---------- HERO ---------- */
 
 .security-page .project-hero {
   padding: 100px 10%;
   background: #0e2a47;
-  color: white;
+  color: #ffffff;
+  text-align: center;
 }
 
 .security-page .project-label {
@@ -15,6 +24,7 @@
   font-size: 11px;
   letter-spacing: 2px;
   color: #e8551c;
+  margin: 0;
 }
 
 .security-page h1 {
@@ -26,23 +36,100 @@
 
 .security-page .project-description {
   max-width: 600px;
+  margin: 0 auto;
+
   font-family: "Plex Mono", monospace;
   font-size: 15px;
   line-height: 1.8;
   color: #c7d6e5;
 }
 
+
+/* ---------- CONTENT ---------- */
+
 .security-page .project-content {
   padding: 80px 10%;
+  text-align: center;
 }
 
 .security-page h2 {
   font-family: "Big Shoulders", sans-serif;
   font-size: 40px;
+  line-height: 1;
+  margin: 0 0 25px;
 }
 
 .security-page .project-content p {
   max-width: 650px;
+  margin: 0 auto;
+
   font-family: "Plex Mono", monospace;
+  font-size: 15px;
   line-height: 1.8;
+}
+
+
+/* ---------- TABLET ---------- */
+
+@media (max-width: 768px) {
+  .security-page {
+    padding-top: 70px;
+  }
+
+  .security-page .project-hero {
+    padding: 80px 8%;
+  }
+
+  .security-page .project-description {
+    font-size: 14px;
+  }
+
+  .security-page .project-content {
+    padding: 60px 8%;
+  }
+
+  .security-page h2 {
+    font-size: 36px;
+  }
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 480px) {
+  .security-page {
+    padding-top: 65px;
+  }
+
+  .security-page .project-hero {
+    padding: 60px 6%;
+  }
+
+  .security-page .project-label {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+  }
+
+  .security-page h1 {
+    font-size: clamp(52px, 18vw, 80px);
+    margin: 15px 0;
+  }
+
+  .security-page .project-description {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .security-page .project-content {
+    padding: 50px 6%;
+  }
+
+  .security-page h2 {
+    font-size: 32px;
+  }
+
+  .security-page .project-content p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
 }
