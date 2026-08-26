@@ -25,27 +25,10 @@
 .tfg-nav .mark {
   display: flex;
   align-items: center;
-  gap: 12px;
+  width: 420px;
+  height: 100%;
 }
 
-.tfg-nav .mark .sq {
-  width: 30px;
-  height: 30px;
-
-  border: 2px solid #e8551c;
-
-  position: relative;
-  flex-shrink: 0;
-}
-
-.tfg-nav .mark .sq::before {
-  content: "";
-
-  position: absolute;
-  inset: 6px;
-
-  border: 1px solid #5d89ac;
-}
 
 .tfg-nav .mark .name {
   font-family: "Big Shoulders", sans-serif;

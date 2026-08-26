@@ -11,12 +11,11 @@ function Navbar() {
       {/* ---------- LOGO ---------- */}
 
       <div className="mark">
-        <div className="sq"></div>
-
-        <div className="name">
-          TOTAL FACILITY
-          <span>GROUP · EST. 1994</span>
-        </div>
+        <img
+          src="/images/TFG-LOGO.png"
+          alt="Total Facility Group"
+          className="tfg-logo"
+        />
       </div>
 
       {/* ---------- NAVIGATION ---------- */}
