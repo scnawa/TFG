@@ -72,59 +72,115 @@ function LandingPage() {
           <h2>One site contact. Every trade covered.</h2>
 
           <div className="tfg-grid">
+
+            {/* A.01 */}
             <div className="tfg-card">
+              <img
+                src="/images/Coles1.png"
+                alt="Shop fit-out"
+                className="service-image"
+              />
+
               <div className="code">A.01</div>
+
               <h3>Shop Fit-Outs</h3>
+
               <p>
                 New store builds and rapid shop fitting for national
                 retail rollouts.
               </p>
             </div>
 
+            {/* A.02 */}
             <div className="tfg-card">
+              <img
+                src="/images/ColesClickandCollect.png"
+                alt="Store refresh"
+                className="service-image"
+              />
+
               <div className="code">A.02</div>
+
               <h3>Store Refreshes</h3>
+
               <p>
                 Refits and refreshes completed after hours, with zero
                 disruption to trade.
               </p>
             </div>
 
+            {/* A.03 */}
             <div className="tfg-card">
+              <img
+                src="/images/ColesSign.png"
+                alt="Signage and fixtures"
+                className="service-image"
+              />
+
               <div className="code">A.03</div>
+
               <h3>Signage &amp; Fixtures</h3>
+
               <p>
                 Supply and install of signage, joinery and fixed
                 fit-out elements.
               </p>
             </div>
 
+            {/* A.04 */}
             <div className="tfg-card">
+              <img
+                src="/images/Rapid.png"
+                alt="Rapid mobilisation"
+                className="service-image"
+              />
+
               <div className="code">A.04</div>
+
               <h3>Rapid Mobilisation</h3>
+
               <p>
                 Crews on site within 48 hours for urgent or unplanned
                 works.
               </p>
             </div>
 
+            {/* A.05 */}
             <div className="tfg-card">
+              <img
+                src="/images/Safety.png"
+                alt="Compliance and safety"
+                className="service-image"
+              />
+
               <div className="code">A.05</div>
+
               <h3>Compliance &amp; Safety</h3>
+
               <p>
                 Site works delivered to Tier 1 safety and governance
                 standards.
               </p>
             </div>
 
+            {/* A.06 */}
             <div className="tfg-card">
+              <img
+                src="/images/National.png"
+                alt="National roll-out"
+                className="service-image"
+              />
+
               <div className="code">A.06</div>
+
               <h3>National Roll-Out</h3>
+
               <p>
                 Coordinated delivery across multiple sites under one
                 program.
               </p>
             </div>
+
           </div>
         </section>
 
