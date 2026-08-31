@@ -23,6 +23,7 @@ function Navbar() {
       <div className="links">
         <Link to="/">HOME</Link>
         <Link to="/about">ABOUT US</Link>
+        <Link to="/cleaning-page">CLEANING</Link>
         <Link to="/security">SECURITY</Link> 
         <Link to="/pest-control">PEST CONTROL</Link>
         <Link to="/contact-page">CONTACT US</Link>

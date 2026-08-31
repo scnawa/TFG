@@ -6,6 +6,7 @@ import PestControl from "./pages/PestControlPage/PestControlPage";
 import BatteryBull from "./pages/BatteryBullPage/BatteryBullPage";
 import AboutPage from "./pages/AboutPage/AboutPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
+import CleaningPage from "./pages/CleaningPage/CleaningPage";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/pest-control" element={<PestControl />} />
         <Route path="/battery-bull" element={<BatteryBull />} />
         <Route path="/contact-page" element={<ContactPage />} />
+        <Route path="/cleaning-page" element={<CleaningPage />} />
       </Routes>
     </BrowserRouter>
   );

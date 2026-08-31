@@ -1,0 +1,485 @@
+/* =========================================
+   CLEANING PAGE
+   All classes use the cleaning- prefix to
+   avoid conflicts with other pages
+========================================= */
+
+.cleaning-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #f6f3ec;
+  color: #16233a;
+  font-family: "Plex Sans", Arial, sans-serif;
+}
+
+.cleaning-main {
+  width: 100%;
+}
+
+.cleaning-container {
+  width: calc(100% - 112px);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.cleaning-hero {
+  padding: 140px 56px 100px;
+  background: #0e2a47;
+  text-align: center;
+}
+
+.cleaning-hero-content {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cleaning-eyebrow,
+.cleaning-section-eyebrow {
+  font-family: "Plex Mono", monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.cleaning-eyebrow {
+  margin-bottom: 28px;
+  color: #8fadc7;
+}
+
+.cleaning-eyebrow::before,
+.cleaning-section-eyebrow::before {
+  content: "— ";
+  color: #e8551c;
+}
+
+.cleaning-title {
+  font-family: "Big Shoulders", sans-serif;
+  font-size: clamp(48px, 6vw, 84px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #f6f3ec;
+}
+
+.cleaning-title span {
+  color: #e8551c;
+}
+
+.cleaning-description {
+  max-width: 560px;
+  margin: 28px auto 0;
+
+  font-size: 17px;
+  line-height: 1.7;
+  color: #c7d6e5;
+}
+
+/* =========================================
+   SERVICES
+========================================= */
+
+.cleaning-services {
+  padding: 100px 0 120px;
+  background: #ece7dc;
+}
+
+.cleaning-services-header {
+  max-width: 680px;
+  margin: 0 auto 54px;
+  text-align: center;
+}
+
+.cleaning-services-header h2 {
+  color: #16233a;
+  font-size: clamp(46px, 5vw, 68px);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.cleaning-services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+
+  background: #d8d2c2;
+  border: 1px solid #d8d2c2;
+}
+
+.cleaning-service-card {
+  position: relative;
+
+  min-height: 280px;
+  padding: 38px 34px;
+
+  background: #f6f3ec;
+  text-align: center;
+}
+
+.cleaning-service-card::before {
+  content: "";
+
+  position: absolute;
+  top: 12px;
+  left: 12px;
+
+  width: 13px;
+  height: 13px;
+
+  border-top: 2px solid #e8551c;
+  border-left: 2px solid #e8551c;
+}
+
+.cleaning-service-number {
+  display: block;
+  margin-bottom: 40px;
+
+  font-family: "Plex Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: #b15a2c;
+}
+
+.cleaning-service-card h3 {
+  margin-bottom: 14px;
+
+  font-family: "Big Shoulders", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #16233a;
+  text-transform: uppercase;
+}
+
+.cleaning-service-card p {
+  max-width: 380px;
+  margin: 0 auto;
+
+  font-size: 15px;
+  line-height: 1.7;
+  color: #5b6472;
+}
+
+/* =========================================
+   EXPERIENCE
+========================================= */
+
+.cleaning-experience {
+  padding: 110px 0;
+  background: #16233a;
+}
+
+.cleaning-experience .cleaning-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  align-items: stretch;
+  gap: 100px;
+}
+
+.cleaning-experience .cleaning-section-eyebrow {
+  color: #8fadc7;
+}
+
+.cleaning-experience h2 {
+  margin-bottom: 26px;
+
+  font-size: clamp(48px, 5vw, 72px);
+  line-height: 0.94;
+  color: #f6f3ec;
+  text-transform: uppercase;
+}
+
+.cleaning-experience h2 span {
+  color: #e8551c;
+}
+
+.cleaning-experience-copy {
+  max-width: 650px;
+
+  margin-bottom: 42px;
+
+  font-size: 17px;
+  line-height: 1.75;
+  color: #c7d6e5;
+}
+
+.cleaning-experience-list {
+  border-top: 1px solid rgba(143, 173, 199, 0.3);
+}
+
+.cleaning-experience-item {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+
+  padding: 17px 0;
+
+  border-bottom: 1px solid rgba(143, 173, 199, 0.3);
+}
+
+.cleaning-experience-item span {
+  width: 32px;
+
+  font-family: "Plex Mono", monospace;
+  font-size: 10px;
+  color: #e8551c;
+}
+
+.cleaning-experience-item p {
+  font-size: 15px;
+  color: #c7d6e5;
+}
+
+.cleaning-experience-panel {
+  position: relative;
+
+  min-height: 450px;
+  padding: 42px 35px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  border: 1px solid #3d6b93;
+}
+
+.cleaning-experience-panel::before,
+.cleaning-experience-panel::after {
+  content: "";
+
+  position: absolute;
+
+  width: 18px;
+  height: 18px;
+}
+
+.cleaning-experience-panel::before {
+  top: 12px;
+  left: 12px;
+
+  border-top: 2px solid #e8551c;
+  border-left: 2px solid #e8551c;
+}
+
+.cleaning-experience-panel::after {
+  right: 12px;
+  bottom: 12px;
+
+  border-right: 2px solid #e8551c;
+  border-bottom: 2px solid #e8551c;
+}
+
+.cleaning-experience-panel p {
+  margin-bottom: 18px;
+
+  font-family: "Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: #8fadc7;
+}
+
+.cleaning-experience-panel strong {
+  font-family: "Big Shoulders", sans-serif;
+  font-size: 120px;
+  line-height: 0.8;
+  color: #f6f3ec;
+}
+
+.cleaning-experience-panel > span {
+  margin-top: 22px;
+
+  font-family: "Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: #e8551c;
+}
+
+.cleaning-panel-line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(143, 173, 199, 0.3);
+}
+
+.cleaning-panel-line-top {
+  top: 70px;
+}
+
+.cleaning-panel-line-bottom {
+  bottom: 70px;
+}
+
+/* =========================================
+   CTA
+========================================= */
+
+.cleaning-cta {
+  padding: 120px 0;
+  text-align: center;
+  background: #f6f3ec;
+}
+
+.cleaning-cta .cleaning-container {
+  max-width: 800px;
+}
+
+.cleaning-cta h2 {
+  margin-bottom: 24px;
+
+  font-size: clamp(58px, 7vw, 100px);
+  line-height: 0.88;
+  text-transform: uppercase;
+  color: black;
+}
+
+.cleaning-cta > .cleaning-container > p:not(.cleaning-section-eyebrow) {
+  max-width: 570px;
+  margin: 0 auto 36px;
+
+  font-size: 17px;
+  line-height: 1.7;
+  color: #5b6472;
+}
+
+.cleaning-cta-button {
+  display: inline-block;
+
+  padding: 18px 32px;
+
+  font-family: "Plex Mono", monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+
+  color: #f6f3ec;
+  background: #e8551c;
+
+  text-decoration: none;
+
+  box-shadow: 3px 3px 0 rgba(14, 42, 71, 0.2);
+}
+
+.cleaning-cta-button:hover {
+  background: #cf4714;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.cleaning-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  padding: 24px 56px;
+
+  background: #0e2a47;
+  border-top: 1px solid #3d6b93;
+
+  font-family: "Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #8fadc7;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+  .cleaning-container {
+    width: calc(100% - 64px);
+  }
+
+  .cleaning-hero {
+    padding: 120px 32px 80px;
+  }
+
+  .cleaning-experience .cleaning-container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .cleaning-experience-panel {
+    min-height: 320px;
+  }
+
+  .cleaning-services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cleaning-footer {
+    padding: 24px 32px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .cleaning-container {
+    width: calc(100% - 40px);
+  }
+
+  .cleaning-hero {
+    padding: 100px 20px 64px;
+  }
+
+  .cleaning-title {
+    font-size: 44px;
+  }
+
+  .cleaning-description {
+    font-size: 16px;
+  }
+
+  .cleaning-services-header h2 {
+    font-size: 48px;
+    }
+
+  .cleaning-services {
+    padding: 75px 0;
+  }
+
+  .cleaning-service-card {
+    min-height: auto;
+    padding: 32px 25px;
+  }
+
+  .cleaning-experience {
+    padding: 80px 0;
+  }
+
+  .cleaning-experience h2 {
+    font-size: 50px;
+  }
+
+  .cleaning-experience-panel strong {
+    font-size: 95px;
+  }
+
+  .cleaning-cta {
+    padding: 85px 0;
+  }
+
+  .cleaning-cta h2 {
+    font-size: 64px;
+  }
+
+  .cleaning-footer {
+    flex-direction: column;
+    padding: 22px 20px;
+    text-align: center;
+    line-height: 1.6;
+  }
+}
