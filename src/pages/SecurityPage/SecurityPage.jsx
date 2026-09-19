@@ -10,20 +10,27 @@ function Security() {
         <section className="project-hero">
           <p className="project-label">TOTAL FACILITY GROUP</p>
 
-          <h1>SECURITY</h1>
+          <h1>
+            SECURITY,
+            <br />
+            BUILT TO <em>WATCH.</em>
+          </h1>
 
           <p className="project-description">
-            Professional security solutions designed to protect people,
-            property and businesses.
+            Total Facility Group brings the same standard to security that
+            we bring to every site we touch — show up, cover the job
+            properly, and keep things moving.
           </p>
         </section>
 
         <section className="project-content">
-          <h2>SECURITY SERVICES</h2>
+          <h2>ONE STANDARD. EVERY SHIFT.</h2>
 
           <p>
-            Our security services provide reliable protection tailored to the
-            needs of each client and environment.
+            Our licensed guards protect people, property and operations
+            around the clock — mobilised fast, briefed properly, and
+            accountable from the first patrol to the last. No surprises, no
+            gaps in coverage. Just a team that's actually watching.
           </p>
         </section>
       </main>

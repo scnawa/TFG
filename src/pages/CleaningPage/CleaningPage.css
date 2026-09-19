@@ -82,6 +82,51 @@
 }
 
 /* =========================================
+   STRIP & SEAL / CUTBACKS FEATURE
+========================================= */
+
+.cleaning-feature {
+  padding: 100px 0;
+  background: #f6f3ec;
+}
+
+.cleaning-feature-inner {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: 64px;
+}
+
+.cleaning-feature-image {
+  display: block;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border: 1px solid #d8d2c2;
+  box-shadow: 6px 6px 0 rgba(14, 42, 71, 0.12);
+}
+
+.cleaning-feature .cleaning-section-eyebrow {
+  margin-bottom: 18px;
+  color: #b15a2c;
+}
+
+.cleaning-feature h2 {
+  margin-bottom: 22px;
+  font-size: clamp(40px, 4.5vw, 60px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: #16233a;
+}
+
+.cleaning-feature-text p:not(.cleaning-section-eyebrow) {
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #5b6472;
+}
+
+/* =========================================
    SERVICES
 ========================================= */
 
@@ -105,21 +150,22 @@
 
 .cleaning-services-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1px;
-
-  background: #d8d2c2;
-  border: 1px solid #d8d2c2;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
 }
 
 .cleaning-service-card {
   position: relative;
-
-  min-height: 280px;
-  padding: 38px 34px;
+  display: flex;
+  flex-direction: column;
 
   background: #f6f3ec;
-  text-align: center;
+  border: 1px solid #d8d2c2;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .cleaning-service-card::before {
@@ -128,6 +174,7 @@
   position: absolute;
   top: 12px;
   left: 12px;
+  z-index: 1;
 
   width: 13px;
   height: 13px;
@@ -136,18 +183,56 @@
   border-left: 2px solid #e8551c;
 }
 
-.cleaning-service-number {
-  display: block;
-  margin-bottom: 40px;
+.cleaning-service-card:hover {
+  transform: scale(1.04);
+  z-index: 2;
+  border-color: #e8551c;
+  box-shadow: 0 14px 30px rgba(14, 42, 71, 0.18);
+}
 
-  font-family: "Plex Mono", monospace;
-  font-size: 11px;
-  letter-spacing: 1.5px;
-  color: #b15a2c;
+.cleaning-service-media {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #0e2a47;
+}
+
+.cleaning-service-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Shown until a real photo is added for the service */
+.cleaning-service-placeholder {
+  width: 100%;
+  height: 100%;
+
+  background-color: #0e2a47;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(93, 137, 172, 0.18) 0px,
+      rgba(93, 137, 172, 0.18) 1px,
+      transparent 1px,
+      transparent 32px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(93, 137, 172, 0.18) 0px,
+      rgba(93, 137, 172, 0.18) 1px,
+      transparent 1px,
+      transparent 32px
+    );
+}
+
+.cleaning-service-body {
+  padding: 26px 26px 30px;
+  text-align: left;
 }
 
 .cleaning-service-card h3 {
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 
   font-family: "Big Shoulders", sans-serif;
   font-size: 28px;
@@ -157,12 +242,19 @@
 }
 
 .cleaning-service-card p {
-  max-width: 380px;
-  margin: 0 auto;
-
   font-size: 15px;
   line-height: 1.7;
   color: #5b6472;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cleaning-service-card {
+    transition: none;
+  }
+
+  .cleaning-service-card:hover {
+    transform: none;
+  }
 }
 
 /* =========================================
@@ -409,12 +501,25 @@
     gap: 50px;
   }
 
+  .cleaning-feature {
+    padding: 75px 0;
+  }
+
+  .cleaning-feature-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .cleaning-feature-image {
+    height: 320px;
+  }
+
   .cleaning-experience-panel {
     min-height: 320px;
   }
 
   .cleaning-services-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .cleaning-footer {
@@ -451,9 +556,12 @@
     padding: 75px 0;
   }
 
-  .cleaning-service-card {
-    min-height: auto;
-    padding: 32px 25px;
+  .cleaning-services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cleaning-service-body {
+    padding: 22px 20px 26px;
   }
 
   .cleaning-experience {

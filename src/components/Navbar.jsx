@@ -22,11 +22,14 @@ function Navbar() {
 
       <div className="links">
         <Link to="/">HOME</Link>
-        <Link to="/about">ABOUT US</Link>
-        <Link to="/cleaning-page">CLEANING</Link>
-        <Link to="/security">SECURITY</Link> 
+        <Link to="/about">ABOUT</Link>
+        <Link to="/shopfitting-construction">SHOPFITTING AND CONSTRUCTION</Link>
+        <Link to="/facility-management">FACILITY MANAGEMENT</Link>
+        <Link to="/cleaning-page">COMMERCIAL CLEANING</Link>
+        <Link to="/security">SECURITY</Link>
         <Link to="/pest-control">PEST CONTROL</Link>
-        <Link to="/contact-page">CONTACT US</Link>
+        <Link to="/warehouse-services">WAREHOUSE SERVICES</Link>
+        <Link to="/contact-page">CONTACT</Link>
       </div>
       {/* ---------- PHONE ---------- */}
       <div className="phone">

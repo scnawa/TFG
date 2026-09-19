@@ -11,10 +11,12 @@
   border-bottom: 1px solid #e8551c;
 
   display: flex;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
+  gap: 28px;
 
-  padding: 12px 56px;
+  padding: 16px 40px;
   z-index: 9999;
 }
 
@@ -27,7 +29,7 @@
 }
 
 .tfg-logo {
-  width: 360px;
+  width: 220px;
   max-width: 100%;
   height: auto;
   display: block;
@@ -36,18 +38,28 @@
 /* ---------- NAV LINKS ---------- */
 
 .tfg-nav .links {
+  flex: 1 1 auto;
+  min-width: 0;
+
   display: flex;
   align-items: center;
-  gap: 36px;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 16px;
 }
 
 .tfg-nav .links a {
+  flex: 1 1 0;
+  min-width: 0;
+
   font-family: "Plex Mono", monospace;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 400;
 
-  line-height: 1;
-  letter-spacing: 1.5px;
+  line-height: 1.35;
+  letter-spacing: 1px;
+  text-align: center;
+  white-space: normal;
 
   color: #c7d6e5;
   text-decoration: none;
@@ -152,23 +164,25 @@
 }
 
 
-/* ---------- TABLET ---------- */
+/* ---------- LAPTOP ---------- */
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   .tfg-nav {
-    padding: 12px 30px;
+    gap: 18px;
+    padding: 16px 28px;
   }
 
   .tfg-logo {
-    width: 300px;
+    width: 190px;
   }
 
   .tfg-nav .links {
-    gap: 22px;
+    gap: 10px;
   }
 
   .tfg-nav .links a {
-    font-size: 11px;
+    font-size: 10px;
+    letter-spacing: 0.6px;
   }
 
   .tfg-nav .phone {
@@ -177,24 +191,35 @@
 }
 
 
-/* ---------- SMALL TABLET ---------- */
+/* ---------- TABLET / MOBILE FALLBACK ----------
+   Nine nav items can no longer share one legible row,
+   so wrap the links onto their own centered row here. */
 
-@media (max-width: 950px) {
+@media (max-width: 900px) {
   .tfg-nav {
-    padding: 12px 24px;
     flex-wrap: wrap;
-    gap: 15px;
+    row-gap: 16px;
+    padding: 18px 24px;
   }
 
   .tfg-logo {
-    width: 260px;
+    width: 220px;
   }
 
   .tfg-nav .links {
     order: 3;
     width: 100%;
+    flex: none;
+
     justify-content: center;
-    gap: 24px;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+  }
+
+  .tfg-nav .links a {
+    flex: none;
+    font-size: 11px;
+    letter-spacing: 1.2px;
   }
 }
 
@@ -203,11 +228,12 @@
 
 @media (max-width: 600px) {
   .tfg-nav {
-    padding: 10px 16px;
+    padding: 16px 16px;
+    row-gap: 14px;
   }
 
   .tfg-logo {
-    width: 230px;
+    width: 200px;
   }
 
   .tfg-nav .phone {
@@ -217,7 +243,7 @@
   .tfg-nav .links {
     justify-content: center;
     flex-wrap: wrap;
-    gap: 14px 20px;
+    gap: 12px 18px;
   }
 
   .tfg-nav .links a {

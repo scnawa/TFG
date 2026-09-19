@@ -1,0 +1,145 @@
+.shopfitting-page {
+  min-height: calc(100vh - 80px);
+  background: #f4f6f8;
+  color: #0e2a47;
+  padding-top: 80px;
+}
+
+.shopfitting-page .project-hero {
+  padding: 100px 10%;
+  background: #0e2a47;
+  color: white;
+  text-align: center;
+}
+
+.shopfitting-page .project-label {
+  font-family: "Plex Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #e8551c;
+}
+
+.shopfitting-page h1 {
+  font-family: "Big Shoulders", sans-serif;
+  font-size: clamp(48px, 8vw, 120px);
+  line-height: 0.9;
+  margin: 20px 0;
+  color: #ffffff;
+}
+
+.shopfitting-page .project-description {
+  max-width: 650px;
+  margin: 0 auto;
+
+  font-family: "Plex Mono", monospace;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #c7d6e5;
+}
+
+.shopfitting-page h2 {
+  font-family: "Big Shoulders", sans-serif;
+  font-size: 40px;
+  color: #0e2a47;
+}
+
+.shopfitting-page .project-content {
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.shopfitting-page .project-content p {
+  max-width: 650px;
+  margin: 0 auto 20px;
+
+  font-family: "Plex Mono", monospace;
+  line-height: 1.8;
+}
+
+/* ---------- PROJECT EXPERIENCE ---------- */
+
+.shopfitting-cases {
+  padding: 20px 10% 100px;
+  background: #f4f6f8;
+}
+
+.shopfitting-cases-container {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.shopfitting-cases .project-eyebrow {
+  font-family: "Plex Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #e8551c;
+  text-align: center;
+}
+
+.shopfitting-cases h2 {
+  margin: 12px 0 50px;
+  text-align: center;
+}
+
+.shopfitting-case {
+  display: flex;
+  gap: 28px;
+  text-align: left;
+
+  padding: 34px 0;
+  border-top: 1px solid #d7dde3;
+}
+
+.shopfitting-case:last-child {
+  border-bottom: 1px solid #d7dde3;
+}
+
+.shopfitting-case-code {
+  flex: 0 0 52px;
+
+  font-family: "Plex Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  color: #e8551c;
+}
+
+.shopfitting-case-body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.shopfitting-case-body h3 {
+  margin: 0 0 12px;
+
+  font-family: "Big Shoulders", sans-serif;
+  font-size: 26px;
+  color: #0e2a47;
+  text-transform: uppercase;
+}
+
+.shopfitting-case-body p {
+  margin: 0;
+
+  font-family: "Plex Mono", monospace;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #445064;
+}
+
+
+/* ---------- TABLET / MOBILE ---------- */
+
+@media (max-width: 700px) {
+  .shopfitting-cases {
+    padding: 10px 6% 70px;
+  }
+
+  .shopfitting-case {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .shopfitting-case-code {
+    width: auto;
+  }
+}

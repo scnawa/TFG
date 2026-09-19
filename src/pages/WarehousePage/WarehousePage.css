@@ -1,0 +1,57 @@
+.warehouse-page {
+  min-height: calc(100vh - 80px);
+  background: #f4f6f8;
+  color: #0e2a47;
+  padding-top: 80px;
+}
+
+.warehouse-page .project-hero {
+  padding: 100px 10%;
+  background: #0e2a47;
+  color: white;
+  text-align: center;
+}
+
+.warehouse-page .project-label {
+  font-family: "Plex Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #e8551c;
+}
+
+.warehouse-page h1 {
+  font-family: "Big Shoulders", sans-serif;
+  font-size: clamp(48px, 8vw, 120px);
+  line-height: 0.9;
+  margin: 20px 0;
+  color: #ffffff;
+}
+
+.warehouse-page .project-description {
+  max-width: 650px;
+  margin: 0 auto;
+
+  font-family: "Plex Mono", monospace;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #c7d6e5;
+}
+
+.warehouse-page h2 {
+  font-family: "Big Shoulders", sans-serif;
+  font-size: 40px;
+  color: #0e2a47;
+}
+
+.warehouse-page .project-content {
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.warehouse-page .project-content p {
+  max-width: 650px;
+  margin: 0 auto 20px;
+
+  font-family: "Plex Mono", monospace;
+  line-height: 1.8;
+}

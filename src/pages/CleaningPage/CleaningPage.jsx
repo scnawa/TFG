@@ -3,6 +3,40 @@ import { useState } from 'react';
 import Navbar from '../../components/Navbar';
 import './CleaningPage.css';
 
+// Add an image path (e.g. '/images/window-cleaning.jpg') to replace a placeholder.
+const CLEANING_SERVICES = [
+    {
+        title: 'Regular Cleaning',
+        text: 'Tailored routine cleaning designed to maintain cleanliness, hygiene and presentation across your site.',
+        image: '/images/stock-cleaning.jpg',
+    },
+    {
+        title: 'Washroom Cleaning',
+        text: 'Complete washroom cleaning and hygiene management to support health, safety and compliance.',
+        image: '/images/Clean Toilet.jpg',
+    },
+    {
+        title: 'Hard Floor Cleaning',
+        text: 'Professional hard floor cleaning and maintenance to protect surfaces and enhance appearance.',
+        image: '/images/Strip and Seal.jpg',
+    },
+    {
+        title: 'Pressure Cleaning',
+        text: 'High-pressure cleaning for car parks, paths and external areas to keep them safe and presentable.',
+        image: '/images/Pressure Cleaning.jpg',
+    },
+    {
+        title: 'Window Cleaning',
+        text: 'Internal and external window cleaning for a clear, streak-free finish.',
+        image: '/images/Window Clean.jpg',
+    },
+    {
+        title: 'Deep Cleaning',
+        text: 'Comprehensive deep cleans for periodic maintenance, audits or changeovers.',
+        image: '/images/Deep Cleaning.jpg',
+    },
+];
+
 function CleaningPage() {
 
     return (
@@ -29,59 +63,62 @@ function CleaningPage() {
             </div>
             </section>
 
+            {/* STRIP & SEAL / CUTBACKS BLURB */}
+            <section className="cleaning-feature">
+            <div className="cleaning-container cleaning-feature-inner">
+                <img
+                src="/images/Strip and Seal.jpg"
+                alt="Commercial floor being stripped and sealed"
+                className="cleaning-feature-image"
+                />
+
+                <div className="cleaning-feature-text">
+                <p className="cleaning-section-eyebrow">FLOOR CARE</p>
+
+                <h2>Strip &amp; Seal. Cutbacks.</h2>
+
+                <p>
+                    Over time, foot traffic and trolleys wear down floor
+                    finishes. A strip and seal removes the old, worn coating
+                    right back to the surface, then applies fresh coats of
+                    sealer for a clean, even, protected floor.
+                </p>
+
+                <p>
+                    Between full strips, a cutback removes the scuffed top
+                    layer of finish and re-coats it — restoring shine and
+                    extending the life of your floor with less downtime.
+                </p>
+                </div>
+            </div>
+            </section>
+
             {/* SERVICES GRID */}
             <section className="cleaning-services">
             <div className="cleaning-container">
                 <div className="cleaning-services-header">
                 <p className="cleaning-section-eyebrow">WHAT WE OFFER</p>
 
-                <h2>Lorem ipsum dolor sit amet.</h2>
+                <h2>Our Cleaning Services</h2>
                 </div>
 
                 <div className="cleaning-services-grid">
-                <article className="cleaning-service-card">
-                    <span className="cleaning-service-number">01</span>
+                {CLEANING_SERVICES.map((service) => (
+                    <article className="cleaning-service-card" key={service.title}>
+                    <div className="cleaning-service-media">
+                        {service.image ? (
+                        <img src={service.image} alt={service.title} />
+                        ) : (
+                        <div className="cleaning-service-placeholder" aria-hidden="true" />
+                        )}
+                    </div>
 
-                    <h3>Strip and Seal</h3>
-
-                    <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit. Sed do eiusmod tempor incididunt ut labore.
-                    </p>
-                </article>
-
-                <article className="cleaning-service-card">
-                    <span className="cleaning-service-number">02</span>
-
-                    <h3>Cut Back</h3>
-
-                    <p>
-                    Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo.
-                    </p>
-                </article>
-
-                <article className="cleaning-service-card">
-                    <span className="cleaning-service-number">03</span>
-
-                    <h3>Sushi Refresh</h3>
-
-                    <p>
-                    Duis aute irure dolor in reprehenderit in voluptate
-                    velit esse cillum dolore eu fugiat nulla pariatur.
-                    </p>
-                </article>
-
-                <article className="cleaning-service-card">
-                    <span className="cleaning-service-number">04</span>
-
-                    <h3>Click and Collect</h3>
-
-                    <p>
-                    Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                </article>
+                    <div className="cleaning-service-body">
+                        <h3>{service.title}</h3>
+                        <p>{service.text}</p>
+                    </div>
+                    </article>
+                ))}
                 </div>
             </div>
             </section>

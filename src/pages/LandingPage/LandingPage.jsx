@@ -3,6 +3,15 @@ import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import './LandingPage.css';
 
+const CLIENT_LOGOS = [
+  { name: 'Coles', src: '/images/Coles logo.png' },
+  { name: 'City FM', src: '/images/CityFm Logo.png' },
+  { name: 'General Pants Co', src: '/images/General pants co logo.jpg' },
+  { name: 'Tradeflex', src: '/images/Tradeflex logo.gif' },
+  { name: 'Liquorland', src: '/images/Liquorland Logo.png' },
+  { name: 'HDS', src: '/images/HDS Logo.webp' },
+];
+
 function LandingPage() {
   return (
     <div className="page">
@@ -62,6 +71,21 @@ function LandingPage() {
                 <span>2026.03</span>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* LOGO SLIDER */}
+        <section className="logo-slider" aria-label="Our clients">
+          <div className="logo-track">
+            {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((logo, i) => (
+              <div
+                className="logo-item"
+                key={`${logo.name}-${i}`}
+                aria-hidden={i >= CLIENT_LOGOS.length}
+              >
+                <img src={logo.src} alt={i < CLIENT_LOGOS.length ? logo.name : ''} />
+              </div>
+            ))}
           </div>
         </section>
 
