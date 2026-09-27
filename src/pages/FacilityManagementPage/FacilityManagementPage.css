@@ -1,57 +1,514 @@
+/* ---------- PAGE ---------- */
+
 .facility-page {
-  min-height: calc(100vh - 80px);
-  background: #f4f6f8;
+  min-height: 100vh;
+  background: #f6f3ec;
   color: #0e2a47;
+
+  /* Prevent content from sitting underneath the fixed navbar */
   padding-top: 80px;
 }
 
+
+/* ---------- HERO ---------- */
+
 .facility-page .project-hero {
   padding: 100px 10%;
-  background: #0e2a47;
-  color: white;
+  background-color: #0e2a47;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(93, 137, 172, 0.1) 0px,
+      rgba(93, 137, 172, 0.1) 1px,
+      transparent 1px,
+      transparent 48px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(93, 137, 172, 0.1) 0px,
+      rgba(93, 137, 172, 0.1) 1px,
+      transparent 1px,
+      transparent 48px
+    );
+  color: #ffffff;
   text-align: center;
 }
 
 .facility-page .project-label {
   font-family: "Plex Mono", monospace;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 2px;
+  color: #8fadc7;
+  margin: 0;
+}
+
+.facility-page .project-label::before {
+  content: "— ";
   color: #e8551c;
 }
 
 .facility-page h1 {
   font-family: "Big Shoulders", sans-serif;
+  font-weight: 800;
   font-size: clamp(48px, 8vw, 120px);
   line-height: 0.9;
   margin: 20px 0;
   color: #ffffff;
 }
 
+.facility-page h1 em {
+  font-style: normal;
+  color: #e8551c;
+}
+
 .facility-page .project-description {
-  max-width: 650px;
+  max-width: 620px;
   margin: 0 auto;
 
-  font-family: "Plex Mono", monospace;
-  font-size: 15px;
-  line-height: 1.8;
+  font-family: "Plex Sans", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
   color: #c7d6e5;
+}
+
+
+/* ---------- SHARED SECTION STYLES ---------- */
+
+.fm-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 96px 6%;
+  box-sizing: content-box;
+}
+
+.fm-centered {
+  text-align: center;
 }
 
 .facility-page h2 {
   font-family: "Big Shoulders", sans-serif;
-  font-size: 40px;
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 1.08;
+  margin: 0 0 25px;
   color: #0e2a47;
 }
 
-.facility-page .project-content {
-  padding: 80px 10%;
+.facility-page h2 em {
+  font-style: normal;
+  color: #e8551c;
+}
+
+.fm-eyebrow {
+  font-family: "Plex Mono", monospace;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #b15a2c;
+  margin: 0 0 18px;
+}
+
+.fm-eyebrow::before {
+  content: "— ";
+  color: #e8551c;
+}
+
+.facility-page p {
+  font-family: "Plex Sans", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #5b6472;
+}
+
+
+/* ---------- FEATURE SPLIT (text + image placeholder) ---------- */
+
+.fm-feature {
+  padding: 96px 6% 24px;
+}
+
+.fm-feature-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+}
+
+.fm-feature-reverse .fm-feature-inner {
+  flex-direction: row-reverse;
+}
+
+.fm-feature-text {
+  flex: 0 0 48%;
+}
+
+.facility-page .fm-feature-text h2 {
+  font-size: 36px;
+}
+
+.fm-feature-text p:not(.fm-eyebrow) {
+  margin: 0 0 16px;
+}
+
+.fm-placeholder {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  height: 400px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: repeating-linear-gradient(
+    135deg,
+    #eae5d6,
+    #eae5d6 10px,
+    #f1ede2 10px,
+    #f1ede2 20px
+  );
+  border: 2px dashed #c9c1a8;
+}
+
+.fm-placeholder span {
+  font-family: "Plex Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #a89f84;
+}
+
+
+.fm-image {
+  /* Capped near the photo's native size so low-res sources don't upscale into blur */
+  flex: 0 1 460px;
+  width: 100%;
+  max-width: 460px;
+  min-width: 0;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  display: block;
+  border: 1px solid #d8d2c2;
+}
+
+
+/* ---------- POINT CARDS (matches home page grid) ---------- */
+
+.fm-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+
+  background: #d8d2c2;
+  border: 1px solid #d8d2c2;
+
+  margin-top: 40px;
   text-align: center;
 }
 
-.facility-page .project-content p {
-  max-width: 650px;
-  margin: 0 auto 20px;
+.fm-card {
+  position: relative;
+  background: #f6f3ec;
+  padding: 44px 36px 48px;
+}
+
+.fm-card::before,
+.fm-card::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+}
+
+.fm-card::before {
+  top: 14px;
+  left: 14px;
+  border-top: 2px solid #e8551c;
+  border-left: 2px solid #e8551c;
+}
+
+.fm-card::after {
+  bottom: 14px;
+  right: 14px;
+  border-bottom: 2px solid #e8551c;
+  border-right: 2px solid #e8551c;
+}
+
+.fm-card-num {
+  display: block;
+  font-family: "Plex Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #b15a2c;
+  margin-bottom: 24px;
+}
+
+.fm-card h3 {
+  font-family: "Big Shoulders", sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  color: #16233a;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin: 0;
+}
+
+.fm-card h3::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 2px;
+  background: #e8551c;
+  margin: 20px auto;
+}
+
+.fm-card p {
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+
+/* ---------- WHY TFG PANEL ---------- */
+
+.fm-panel {
+  background: #16233a;
+  padding: 96px 6%;
+}
+
+.fm-panel-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.fm-panel .fm-eyebrow {
+  color: #8fadc7;
+}
+
+.facility-page .fm-panel h2 {
+  color: #ffffff;
+}
+
+.fm-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.fm-list-bullets li {
+  position: relative;
+  padding-left: 26px;
+}
+
+.fm-list-bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 8px;
+  height: 8px;
+  background: #e8551c;
+}
+
+.fm-panel .fm-list li {
+  font-family: "Plex Sans", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #c7d6e5;
+  margin-bottom: 18px;
+}
+
+.fm-panel .fm-list strong {
+  color: #ffffff;
+}
+
+.fm-list-cols {
+  columns: 2;
+  column-gap: 40px;
+}
+
+.fm-list-cols li {
+  break-inside: avoid;
+}
+
+
+/* ---------- CTA ---------- */
+
+.fm-cta {
+  background: #0e2a47;
+  color: #ffffff;
+  text-align: center;
+  padding: 90px 8%;
+}
+
+.facility-page .fm-cta h2 {
+  color: #ffffff;
+  font-size: clamp(36px, 6vw, 64px);
+}
+
+.facility-page .fm-cta p {
+  max-width: 560px;
+  margin: 0 auto 36px;
+  color: #c7d6e5;
+}
+
+.fm-cta-button {
+  display: inline-block;
 
   font-family: "Plex Mono", monospace;
-  line-height: 1.8;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: #0e2a47;
+  background: #e8551c;
+
+  padding: 16px 30px;
+  text-decoration: none;
+
+  transform: rotate(-1.5deg);
+  border: 1px solid #0e2a47;
+  box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.18);
+}
+
+
+/* ---------- FOOTER ---------- */
+
+.fm-footer {
+  background: #0e2a47;
+  border-top: 1px solid #3d6b93;
+  padding: 24px 56px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  color: #8fadc7;
+  font-family: "Plex Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+
+/* ---------- TABLET ---------- */
+
+@media (max-width: 900px) {
+  .fm-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .fm-feature-inner {
+    flex-direction: column;
+  }
+
+  .fm-feature-reverse .fm-feature-inner {
+    flex-direction: column;
+  }
+
+  .fm-feature-text {
+    flex: none;
+  }
+
+  .fm-placeholder {
+    flex: none;
+    height: 280px;
+  }
+
+  .fm-list-cols {
+    columns: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .facility-page {
+    padding-top: 70px;
+  }
+
+  .facility-page .project-hero {
+    padding: 80px 8%;
+  }
+
+  .facility-page .project-description {
+    font-size: 16px;
+  }
+
+  .fm-section,
+  .fm-feature {
+    padding: 64px 8%;
+  }
+
+  .facility-page h2 {
+    font-size: 36px;
+  }
+
+  .fm-panel {
+    padding: 64px 8%;
+  }
+
+  .fm-footer {
+    padding: 24px 20px;
+  }
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 600px) {
+  .fm-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .facility-page {
+    padding-top: 65px;
+  }
+
+  .facility-page .project-hero {
+    padding: 60px 6%;
+  }
+
+  .facility-page .project-label {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+
+  .facility-page h1 {
+    font-size: clamp(52px, 18vw, 80px);
+    margin: 15px 0;
+  }
+
+  .facility-page .project-description {
+    font-size: 15px;
+  }
+
+  .fm-section,
+  .fm-feature {
+    padding: 50px 6%;
+  }
+
+  .facility-page h2 {
+    font-size: 32px;
+  }
+
+  .facility-page p {
+    font-size: 15px;
+  }
+
+  .fm-placeholder {
+    height: 220px;
+  }
+
+  .fm-cta {
+    padding: 60px 6%;
+  }
+
+  .fm-footer {
+    flex-direction: column;
+    text-align: center;
+  }
 }

@@ -1,101 +1,159 @@
+/* ---------- PAGE ---------- */
+
 .shopfitting-page {
-  min-height: calc(100vh - 80px);
-  background: #f4f6f8;
+  min-height: 100vh;
+  background: #f6f3ec;
   color: #0e2a47;
+
+  /* Prevent content from sitting underneath the fixed navbar */
   padding-top: 80px;
 }
 
+
+/* ---------- HERO ---------- */
+
 .shopfitting-page .project-hero {
   padding: 100px 10%;
-  background: #0e2a47;
-  color: white;
+  background-color: #0e2a47;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(93, 137, 172, 0.1) 0px,
+      rgba(93, 137, 172, 0.1) 1px,
+      transparent 1px,
+      transparent 48px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(93, 137, 172, 0.1) 0px,
+      rgba(93, 137, 172, 0.1) 1px,
+      transparent 1px,
+      transparent 48px
+    );
+  color: #ffffff;
   text-align: center;
 }
 
 .shopfitting-page .project-label {
   font-family: "Plex Mono", monospace;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 2px;
+  color: #8fadc7;
+  margin: 0;
+}
+
+.shopfitting-page .project-label::before {
+  content: "— ";
   color: #e8551c;
 }
 
 .shopfitting-page h1 {
   font-family: "Big Shoulders", sans-serif;
+  font-weight: 800;
   font-size: clamp(48px, 8vw, 120px);
   line-height: 0.9;
   margin: 20px 0;
   color: #ffffff;
 }
 
+.shopfitting-page h1 em {
+  font-style: normal;
+  color: #e8551c;
+}
+
 .shopfitting-page .project-description {
-  max-width: 650px;
+  max-width: 620px;
   margin: 0 auto;
 
-  font-family: "Plex Mono", monospace;
-  font-size: 15px;
-  line-height: 1.8;
+  font-family: "Plex Sans", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
   color: #c7d6e5;
+}
+
+
+/* ---------- SHARED SECTION STYLES ---------- */
+
+.sf-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 96px 6%;
+  box-sizing: content-box;
+}
+
+.sf-section-tight {
+  padding-top: 24px;
+}
+
+.sf-centered {
+  text-align: center;
+}
+
+.sf-narrow {
+  max-width: 850px;
 }
 
 .shopfitting-page h2 {
   font-family: "Big Shoulders", sans-serif;
-  font-size: 40px;
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 1.08;
+  margin: 0 0 25px;
   color: #0e2a47;
 }
 
-.shopfitting-page .project-content {
-  padding: 80px 10%;
-  text-align: center;
+.shopfitting-page h2 em {
+  font-style: normal;
+  color: #e8551c;
 }
 
-.shopfitting-page .project-content p {
-  max-width: 650px;
-  margin: 0 auto 20px;
-
+.sf-eyebrow {
   font-family: "Plex Mono", monospace;
-  line-height: 1.8;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #b15a2c;
+  margin: 0 0 18px;
 }
 
-/* ---------- PROJECT EXPERIENCE ---------- */
-
-.shopfitting-cases {
-  padding: 20px 10% 100px;
-  background: #f4f6f8;
+.sf-eyebrow::before {
+  content: "— ";
+  color: #e8551c;
 }
 
-.shopfitting-cases-container {
-  max-width: 850px;
+.shopfitting-page p {
+  font-family: "Plex Sans", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #5b6472;
+}
+
+.sf-lead {
+  max-width: 720px;
   margin: 0 auto;
 }
 
-.shopfitting-cases .project-eyebrow {
-  font-family: "Plex Mono", monospace;
-  font-size: 11px;
-  letter-spacing: 2px;
-  color: #e8551c;
-  text-align: center;
+
+/* ---------- RECENT WORK ---------- */
+
+.sf-cases {
+  margin-top: 40px;
 }
 
-.shopfitting-cases h2 {
-  margin: 12px 0 50px;
-  text-align: center;
-}
-
-.shopfitting-case {
+.sf-case {
   display: flex;
   gap: 28px;
   text-align: left;
 
   padding: 34px 0;
-  border-top: 1px solid #d7dde3;
+  border-top: 1px solid #d8d2c2;
 }
 
-.shopfitting-case:last-child {
-  border-bottom: 1px solid #d7dde3;
+.sf-case:last-child {
+  border-bottom: 1px solid #d8d2c2;
 }
 
-.shopfitting-case-code {
-  flex: 0 0 52px;
+.sf-case-code {
+  flex: 0 0 56px;
 
   font-family: "Plex Mono", monospace;
   font-size: 12px;
@@ -103,43 +161,236 @@
   color: #e8551c;
 }
 
-.shopfitting-case-body {
+.sf-case-body {
   flex: 1 1 auto;
   min-width: 0;
 }
 
-.shopfitting-case-body h3 {
+.sf-case-body h3 {
   margin: 0 0 12px;
 
   font-family: "Big Shoulders", sans-serif;
+  font-weight: 700;
   font-size: 26px;
-  color: #0e2a47;
+  letter-spacing: 0.4px;
+  color: #16233a;
   text-transform: uppercase;
 }
 
-.shopfitting-case-body p {
+.sf-case-body p {
   margin: 0;
-
-  font-family: "Plex Mono", monospace;
-  font-size: 14px;
-  line-height: 1.8;
-  color: #445064;
 }
 
 
-/* ---------- TABLET / MOBILE ---------- */
+/* ---------- WHY TFG PANEL ---------- */
 
-@media (max-width: 700px) {
-  .shopfitting-cases {
-    padding: 10px 6% 70px;
+.sf-panel {
+  background: #16233a;
+  padding: 96px 6%;
+}
+
+.sf-panel-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sf-panel .sf-eyebrow {
+  color: #8fadc7;
+}
+
+.shopfitting-page .sf-panel h2 {
+  color: #ffffff;
+}
+
+.sf-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.sf-list li {
+  position: relative;
+  padding-left: 26px;
+
+  font-family: "Plex Sans", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #c7d6e5;
+  margin-bottom: 18px;
+}
+
+.sf-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 8px;
+  height: 8px;
+  background: #e8551c;
+}
+
+.sf-list li:last-child {
+  margin-bottom: 0;
+}
+
+.sf-list strong {
+  color: #ffffff;
+}
+
+
+/* ---------- CTA ---------- */
+
+.sf-cta {
+  background: #0e2a47;
+  color: #ffffff;
+  text-align: center;
+  padding: 90px 8%;
+}
+
+.shopfitting-page .sf-cta h2 {
+  color: #ffffff;
+  font-size: clamp(36px, 6vw, 64px);
+}
+
+.shopfitting-page .sf-cta p {
+  max-width: 560px;
+  margin: 0 auto 36px;
+  color: #c7d6e5;
+}
+
+.sf-cta-button {
+  display: inline-block;
+
+  font-family: "Plex Mono", monospace;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: #0e2a47;
+  background: #e8551c;
+
+  padding: 16px 30px;
+  text-decoration: none;
+
+  transform: rotate(-1.5deg);
+  border: 1px solid #0e2a47;
+  box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.18);
+}
+
+
+/* ---------- FOOTER ---------- */
+
+.sf-footer {
+  background: #0e2a47;
+  border-top: 1px solid #3d6b93;
+  padding: 24px 56px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  color: #8fadc7;
+  font-family: "Plex Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+
+/* ---------- TABLET ---------- */
+
+@media (max-width: 768px) {
+  .shopfitting-page {
+    padding-top: 70px;
   }
 
-  .shopfitting-case {
+  .shopfitting-page .project-hero {
+    padding: 80px 8%;
+  }
+
+  .shopfitting-page .project-description {
+    font-size: 16px;
+  }
+
+  .sf-section {
+    padding: 64px 8%;
+  }
+
+  .sf-section-tight {
+    padding-top: 16px;
+  }
+
+  .shopfitting-page h2 {
+    font-size: 36px;
+  }
+
+  .sf-panel {
+    padding: 64px 8%;
+  }
+
+  .sf-footer {
+    padding: 24px 20px;
+  }
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 600px) {
+  .sf-case {
     flex-direction: column;
     gap: 10px;
   }
 
-  .shopfitting-case-code {
-    width: auto;
+  .sf-case-code {
+    flex: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .shopfitting-page {
+    padding-top: 65px;
+  }
+
+  .shopfitting-page .project-hero {
+    padding: 60px 6%;
+  }
+
+  .shopfitting-page .project-label {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+
+  .shopfitting-page h1 {
+    font-size: clamp(52px, 18vw, 80px);
+    margin: 15px 0;
+  }
+
+  .shopfitting-page .project-description {
+    font-size: 15px;
+  }
+
+  .sf-section {
+    padding: 50px 6%;
+  }
+
+  .shopfitting-page h2 {
+    font-size: 32px;
+  }
+
+  .shopfitting-page p {
+    font-size: 15px;
+  }
+
+  .sf-cta {
+    padding: 60px 6%;
+  }
+
+  .sf-footer {
+    flex-direction: column;
+    text-align: center;
   }
 }
