@@ -6,6 +6,7 @@ import Button from '../../components/ui/Button';
 import PageHero from '../../components/ui/PageHero';
 import Reveal from '../../components/ui/Reveal';
 import Section from '../../components/ui/Section';
+import { sendEnquiry } from '../../lib/sendEnquiry';
 import { EMAIL, PHONE } from '../../siteConfig';
 import './ContactPage.css';
 
@@ -19,7 +20,8 @@ function ContactPage() {
         message: '',
     });
 
-    const [submitted, setSubmitted] = useState(false);
+    // 'idle' | 'sending' | 'sent' | 'error'
+    const [status, setStatus] = useState('idle');
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -29,20 +31,29 @@ function ContactPage() {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        if (status === 'sending') return;
 
-        // TODO: replace with actual submit logic (API call, email service, etc.)
-        console.log('Contact form submitted:', formData);
+        setStatus('sending');
 
-        setSubmitted(true);
-        setFormData({
-            firstName: '',
-            lastName: '',
-            email: '',
-            phone: '',
-            message: '',
-        });
+        try {
+            const botcheck = new FormData(e.currentTarget).get('botcheck') === 'on';
+            await sendEnquiry({ ...formData, botcheck });
+
+            setStatus('sent');
+            setFormData({
+                firstName: '',
+                lastName: '',
+                email: '',
+                phone: '',
+                message: '',
+            });
+        } catch (error) {
+            console.error('Contact form failed to send:', error);
+            // Keep what they typed so they can retry without starting over
+            setStatus('error');
+        }
     };
 
     return (
@@ -87,13 +98,39 @@ function ContactPage() {
 
                         {/* FORM PANEL */}
                         <Reveal className="contact-form-panel" delay={120}>
-                            {submitted && (
-                                <div className="contact-success" role="status">
-                                    Thanks for reaching out — we&apos;ll be in touch shortly.
+                            <div aria-live="polite">
+                                {status === 'sent' && (
+                                    <div className="contact-success" role="status">
+                                        Thanks for reaching out — your message has been sent and
+                                        we&apos;ll be in touch shortly.
+                                    </div>
+                                )}
+                            </div>
+
+                            {status === 'error' && (
+                                <div className="contact-error" role="alert">
+                                    Sorry, your message couldn&apos;t be sent. Please try again,
+                                    or contact us directly on{' '}
+                                    <a href={PHONE.href}>{PHONE.display}</a> or at{' '}
+                                    <a href={EMAIL.href}>{EMAIL.display}</a>.
                                 </div>
                             )}
 
-                            <form className="contact-form" onSubmit={handleSubmit}>
+                            <form
+                                className="contact-form"
+                                onSubmit={handleSubmit}
+                                aria-busy={status === 'sending'}
+                            >
+                                {/* Spam honeypot: hidden from people, filled in by bots */}
+                                <input
+                                    type="checkbox"
+                                    name="botcheck"
+                                    className="contact-honeypot"
+                                    tabIndex={-1}
+                                    autoComplete="off"
+                                    aria-hidden="true"
+                                />
+
                                 <div className="contact-form-row">
                                     <div className="contact-field">
                                         <label htmlFor="firstName">First Name</label>
@@ -163,8 +200,13 @@ function ContactPage() {
                                     />
                                 </div>
 
-                                <Button type="submit" className="contact-submit-button" arrow>
-                                    SEND MESSAGE
+                                <Button
+                                    type="submit"
+                                    className="contact-submit-button"
+                                    arrow={status !== 'sending'}
+                                    disabled={status === 'sending'}
+                                >
+                                    {status === 'sending' ? 'SENDING…' : 'SEND MESSAGE'}
                                 </Button>
                             </form>
                         </Reveal>

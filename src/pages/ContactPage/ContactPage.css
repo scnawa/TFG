@@ -110,6 +110,33 @@
   border-left: 3px solid var(--c-orange);
 }
 
+.contact-error {
+  margin-bottom: var(--space-6);
+  padding: var(--space-4) var(--space-5);
+
+  font-size: var(--fs-small);
+  line-height: 1.6;
+  color: var(--c-ink);
+
+  background: #fbeee8;
+  border-left: 3px solid var(--c-orange-hover);
+}
+
+.contact-error a {
+  font-weight: 600;
+  color: var(--c-orange-ink);
+  white-space: nowrap;
+}
+
+/* Visually hidden spam trap */
+.contact-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
 /* ---------- FORM ---------- */
 
 .contact-form {
