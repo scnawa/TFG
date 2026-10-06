@@ -1,6 +1,15 @@
-import { Link } from "react-router-dom";
-
 import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import Accordion from "../../components/ui/Accordion";
+import CardGrid from "../../components/ui/CardGrid";
+import CtaBand from "../../components/ui/CtaBand";
+import FeatureList from "../../components/ui/FeatureList";
+import FeatureSplit from "../../components/ui/FeatureSplit";
+import PageHero from "../../components/ui/PageHero";
+import Reveal from "../../components/ui/Reveal";
+import Section from "../../components/ui/Section";
+import SectionHeader from "../../components/ui/SectionHeader";
+import Steps from "../../components/ui/Steps";
 import "./SecurityPage.css";
 
 const DUTIES = [
@@ -115,39 +124,29 @@ function Security() {
     <>
       <Navbar />
 
-      <main className="project-page security-page">
-        {/* HERO */}
-        <section className="project-hero">
-          <p className="project-label">TOTAL FACILITY GROUP</p>
-
-          <h1>
-            SECURITY,
-            <br />
-            BUILT TO <em>WATCH.</em>
-          </h1>
-
-          <p className="project-description">
-            Total Facility Group brings the same standard to security that
-            we bring to every site we touch — show up, cover the job
-            properly, and keep things moving.
-          </p>
-        </section>
+      <main id="main">
+        <PageHero
+          title={
+            <>
+              SECURITY,
+              <br />
+              BUILT TO <em>WATCH.</em>
+            </>
+          }
+          lead="Total Facility Group brings the same standard to security that we bring to every site we touch — show up, cover the job properly, and keep things moving."
+        />
 
         {/* INTRO */}
-        <section className="sec-section sec-split">
-          <img
-            className="sec-split-image"
-            src="/images/cctv.jfif"
-            alt="CCTV security camera"
-          />
-
-          <div className="sec-split-text">
-            <p className="sec-eyebrow">TOP-NOTCH SECURITY</p>
-
-            <h2>
-              Licensed Guards, Patrols <em>&amp;</em> CCTV
-            </h2>
-
+        <Section>
+          <FeatureSplit
+            media={<img src="/images/cctv.jfif" alt="CCTV security camera" />}
+            eyebrow="TOP-NOTCH SECURITY"
+            title={
+              <>
+                Licensed Guards, Patrols <em>&amp;</em> CCTV
+              </>
+            }
+          >
             <p>
               Total Facility Group delivers top-notch security services you
               can rely on. Our licensed guards protect people, property and
@@ -160,164 +159,141 @@ function Security() {
               keep your premises protected with fast response, clear
               reporting and a standard we hold on every site.
             </p>
-          </div>
-        </section>
+          </FeatureSplit>
+        </Section>
 
         {/* DUTIES */}
-        <section className="sec-section sec-centered">
-          <p className="sec-eyebrow">WHAT WE DO</p>
-          <h2>
-            What Does a <em>Security Officer</em> Do?
-          </h2>
+        <Section tone="paper-2">
+          <Reveal>
+            <SectionHeader
+              eyebrow="WHAT WE DO"
+              title={
+                <>
+                  What Does a <em>Security Officer</em> Do?
+                </>
+              }
+              lead="Our officers control access, patrol the site, respond to alarms and report incidents — protecting your people, property and operations, especially when the site is unattended."
+            />
+          </Reveal>
 
-          <p className="sec-lead">
-            Our officers control access, patrol the site, respond to alarms
-            and report incidents — protecting your people, property and
-            operations, especially when the site is unattended.
-          </p>
-
-          <div className="sec-cards">
-            {DUTIES.map((duty, i) => (
-              <article className="sec-card" key={duty.title}>
-                <span className="sec-card-num">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3>{duty.title}</h3>
-                <p>{duty.text}</p>
-              </article>
-            ))}
-          </div>
-        </section>
+          <CardGrid items={DUTIES} numbered />
+        </Section>
 
         {/* SERVICES TABLE */}
-        <section className="sec-section sec-narrow">
-          <p className="sec-eyebrow">SERVICES</p>
-          <h2>
-            Our Security <em>Services</em>
-          </h2>
+        <Section width="narrow">
+          <Reveal>
+            <SectionHeader
+              align="left"
+              eyebrow="SERVICES"
+              title={
+                <>
+                  Our Security <em>Services</em>
+                </>
+              }
+              lead="We combine physical guards, mobile patrols and electronic monitoring into one coordinated plan — so you're not managing multiple providers for one site."
+            />
 
-          <p className="sec-lead sec-lead-left">
-            We combine physical guards, mobile patrols and electronic
-            monitoring into one coordinated plan — so you're not managing
-            multiple providers for one site.
-          </p>
+            <table className="sec-table">
+              <thead>
+                <tr>
+                  <th scope="col">SERVICE</th>
+                  <th scope="col">BEST SUITED FOR</th>
+                </tr>
+              </thead>
 
-          <div className="sec-table" role="table">
-            <div className="sec-table-row sec-table-head" role="row">
-              <span role="columnheader">SERVICE</span>
-              <span role="columnheader">BEST SUITED FOR</span>
-            </div>
-
-            {SERVICES.map((service) => (
-              <div className="sec-table-row" role="row" key={service.name}>
-                <strong role="cell">{service.name}</strong>
-                <span role="cell">{service.suited}</span>
-              </div>
-            ))}
-          </div>
-
-          <p className="sec-note">
-            No matter the size of the site, we tailor coverage to suit it.
-          </p>
-        </section>
-
-        {/* RISKS + PROCESS + WHY */}
-        <section className="sec-panel">
-          <div className="sec-panel-inner">
-            <article className="sec-block">
-              <p className="sec-eyebrow">KNOW THE RISKS</p>
-              <h2>
-                Common <em>Security Risks</em>
-              </h2>
-
-              <p>
-                Commercial sites are a frequent target because they hold
-                valuable stock and equipment and are regularly unattended
-                after hours.
-              </p>
-
-              <ol className="sec-list">
-                {RISKS.map(([label, text]) => (
-                  <li key={label}>
-                    <strong>{label}</strong> — {text}
-                  </li>
+              <tbody>
+                {SERVICES.map((service) => (
+                  <tr key={service.name}>
+                    <th scope="row">{service.name}</th>
+                    <td>{service.suited}</td>
+                  </tr>
                 ))}
-              </ol>
-            </article>
+              </tbody>
+            </table>
 
-            <article className="sec-block">
-              <p className="sec-eyebrow">OUR PROCESS</p>
-              <h2>
-                How We <em>Secure Your Site</em>
-              </h2>
+            <p className="section-note">
+              No matter the size of the site, we tailor coverage to suit it.
+            </p>
+          </Reveal>
+        </Section>
 
-              <ol className="sec-list">
-                {STEPS.map(([label, text]) => (
-                  <li key={label}>
-                    <strong>{label}</strong> — {text}
-                  </li>
-                ))}
-              </ol>
-            </article>
+        {/* RISKS */}
+        <Section tone="ink">
+          <Reveal>
+            <SectionHeader
+              tone="dark"
+              eyebrow="KNOW THE RISKS"
+              title={
+                <>
+                  Common <em>Security Risks</em>
+                </>
+              }
+              lead="Commercial sites are a frequent target because they hold valuable stock and equipment and are regularly unattended after hours."
+            />
 
-            <article className="sec-block sec-block-wide">
-              <p className="sec-eyebrow">WHY TFG</p>
-              <h2>
-                Why Choose <em>Total Facility Group</em>
-              </h2>
+            <FeatureList items={RISKS} marker="number" columns={2} tone="dark" />
+          </Reveal>
+        </Section>
 
-              <ul className="sec-list sec-list-bullets sec-list-cols">
-                {REASONS.map(([label, text]) => (
-                  <li key={label}>
-                    <strong>{label}</strong> — {text}
-                  </li>
-                ))}
-              </ul>
-            </article>
-          </div>
-        </section>
+        {/* PROCESS */}
+        <Section>
+          <Reveal>
+            <SectionHeader
+              eyebrow="OUR PROCESS"
+              title={
+                <>
+                  How We <em>Secure Your Site</em>
+                </>
+              }
+            />
+          </Reveal>
+
+          <Steps items={STEPS} />
+        </Section>
+
+        {/* WHY TFG */}
+        <Section tone="paper-2">
+          <Reveal>
+            <SectionHeader
+              eyebrow="WHY TFG"
+              title={
+                <>
+                  Why Choose <em>Total Facility Group</em>
+                </>
+              }
+            />
+
+            <FeatureList items={REASONS} columns={2} />
+          </Reveal>
+        </Section>
 
         {/* FAQ */}
-        <section className="sec-section sec-narrow">
-          <p className="sec-eyebrow">FAQ</p>
-          <h2>
-            Frequently Asked <em>Questions</em>
-          </h2>
+        <Section width="narrow">
+          <Reveal>
+            <SectionHeader
+              eyebrow="FAQ"
+              title={
+                <>
+                  Frequently Asked <em>Questions</em>
+                </>
+              }
+            />
 
-          <div className="sec-faq">
-            {FAQS.map((faq) => (
-              <details className="sec-faq-item" key={faq.q}>
-                <summary>{faq.q}</summary>
-                <p>{faq.a}</p>
-              </details>
-            ))}
-          </div>
-        </section>
+            <Accordion items={FAQS} />
+          </Reveal>
+        </Section>
 
-        {/* CTA */}
-        <section className="sec-cta">
-          <h2>
-            NEED SECURITY THAT <em>SHOWS UP?</em>
-          </h2>
-
-          <p>
-            Talk to us about a site assessment and a security plan built
-            around your premises.
-          </p>
-
-          <Link to="/contact-page" className="sec-cta-button">
-            Contact TFG
-          </Link>
-        </section>
+        <CtaBand
+          title={
+            <>
+              NEED SECURITY THAT <em>SHOWS UP?</em>
+            </>
+          }
+          text="Talk to us about a site assessment and a security plan built around your premises."
+        />
       </main>
 
-      <footer className="sec-footer">
-        <span>
-          TOTAL FACILITY GROUP · COMMERCIAL FIT-OUT &amp; BUILDING SERVICES
-        </span>
-
-        <span>© 2026 TFG</span>
-      </footer>
+      <Footer />
     </>
   );
 }

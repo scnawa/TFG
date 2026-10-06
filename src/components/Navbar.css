@@ -1,23 +1,26 @@
-/* ---------- NAV ---------- */
+/* =========================================
+   NAVBAR
+   Sticky, so it occupies its own space and
+   pages never need to offset for it.
+   Collapses to a menu panel at <= 1279px
+   (keep in sync with --nav-h in index.css).
+========================================= */
 
 .tfg-nav {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 100%;
-
-  box-sizing: border-box;
-  background: #1e2833; /* Matches the TFG logo background */
-  border-bottom: 1px solid #e8551c;
+  z-index: 1000;
 
   display: flex;
-  flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
-  gap: 28px;
+  gap: var(--space-6);
 
-  padding: 16px 40px;
-  z-index: 9999;
+  height: var(--nav-h);
+  padding: 0 var(--gutter);
+
+  background: var(--c-nav); /* Matches the TFG logo background */
+  border-bottom: 1px solid var(--c-orange);
 }
 
 /* ---------- LOGO / MARK ---------- */
@@ -29,225 +32,351 @@
 }
 
 .tfg-logo {
-  width: 220px;
-  max-width: 100%;
-  height: auto;
   display: block;
+  width: 176px;
+  height: auto;
 }
 
 /* ---------- NAV LINKS ---------- */
 
 .tfg-nav .links {
-  flex: 1 1 auto;
-  min-width: 0;
+  align-self: stretch;
 
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  gap: 16px;
+  align-items: stretch;
+  justify-content: flex-end;
+  gap: clamp(14px, 1.5vw, 24px);
+
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .tfg-nav .links a {
-  flex: 1 1 0;
-  min-width: 0;
-
-  font-family: "Plex Mono", monospace;
-  font-size: 11px;
-  font-weight: 400;
-
-  line-height: 1.35;
-  letter-spacing: 1px;
-  text-align: center;
-  white-space: normal;
-
-  color: #c7d6e5;
-  text-decoration: none;
-}
-
-.tfg-nav .links a:hover {
-  color: #ff7a30;
-}
-
-/* ---------- PROJECTS ---------- */
-
-.projects-menu {
   position: relative;
 
   display: flex;
   align-items: center;
-}
+  justify-content: center;
+  max-width: 15ch;
 
-.projects-button {
-  display: flex;
-  align-items: center;
-
-  background: none;
-  border: none;
-
-  padding: 0;
-  margin: 0;
-
-  font-family: "Plex Mono", monospace;
-  font-size: 12px;
-  font-weight: 400;
-
-  line-height: 1;
-  letter-spacing: 1.5px;
-
-  color: #c7d6e5;
-
-  cursor: pointer;
-}
-
-.projects-button:hover {
-  color: #e8551c;
-}
-
-/* ---------- PROJECTS DROPDOWN ---------- */
-
-.projects-dropdown {
-  position: absolute;
-
-  top: 100%;
-  left: 0;
-
-  margin-top: 14px;
-
-  min-width: 180px;
-
-  background: #ffffff;
-
-  border: 1px solid #ddd;
-
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-
-  display: flex;
-  flex-direction: column;
-
-  z-index: 10000;
-}
-
-.projects-dropdown a {
-  display: block;
-
-  padding: 12px 16px;
-
-  font-family: "Plex Mono", monospace;
-  font-size: 12px;
-  font-weight: 400;
-
-  color: #111;
-
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 1px;
+  text-align: center;
   text-decoration: none;
 
-  white-space: nowrap;
+  color: var(--c-mist);
 
-  line-height: 1.2;
+  transition: color var(--dur-fast) var(--ease-out);
 }
 
-.projects-dropdown a:hover {
-  background: #f2f2f2;
-  color: #e8551c;
+/* Indicator bar sitting on the nav's bottom rule */
+.tfg-nav .links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+
+  height: 2px;
+  background: var(--c-steel);
+
+  transform: scaleX(0);
+  transform-origin: left;
+  transition:
+    transform var(--dur) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out);
+}
+
+.tfg-nav .links a:hover {
+  color: var(--c-white);
+}
+
+.tfg-nav .links a:hover::after {
+  transform: scaleX(1);
+}
+
+.tfg-nav .links a.active {
+  color: var(--c-white);
+}
+
+.tfg-nav .links a.active::after {
+  background: var(--c-orange);
+  transform: scaleX(1);
+}
+
+/* ---------- CONTACT CTA ---------- */
+
+.tfg-nav .links .nav-cta {
+  align-self: center;
+  max-width: none;
+
+  padding: 10px 16px;
+  margin-left: var(--space-2);
+
+  font-weight: 600;
+  letter-spacing: 1.5px;
+
+  color: var(--c-orange-bright);
+  border: 1px solid var(--c-orange);
+
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out);
+}
+
+.tfg-nav .links .nav-cta::after {
+  display: none;
+}
+
+.tfg-nav .links .nav-cta:hover,
+.tfg-nav .links .nav-cta.active {
+  color: var(--c-navy);
+  background: var(--c-orange);
 }
 
 /* ---------- PHONE ---------- */
 
 .tfg-nav .phone {
-  font-family: "Plex Mono", monospace;
-  font-size: 13px;
-
-  color: #e8551c;
-
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
   letter-spacing: 0.5px;
-  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+
+  color: var(--c-orange-bright);
+
+  transition: color var(--dur-fast) var(--ease-out);
 }
 
+.tfg-nav .phone:hover {
+  color: var(--c-white);
+}
 
-/* ---------- LAPTOP ---------- */
+.tfg-nav .links .phone-in-menu {
+  display: none;
+}
 
-@media (max-width: 1400px) {
+.tfg-nav .phone-label {
+  color: var(--c-steel);
+  margin-right: var(--space-2);
+}
+
+/* ---------- MOBILE TOGGLE ---------- */
+
+.menu-toggle {
+  display: none;
+  align-items: center;
+  gap: var(--space-3);
+
+  min-height: 44px;
+  padding: 0 var(--space-4);
+
+  background: none;
+  border: 1px solid var(--c-line-dark);
+  cursor: pointer;
+
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+
+  color: var(--c-mist);
+
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+
+.menu-toggle:hover {
+  color: var(--c-white);
+  border-color: var(--c-steel);
+}
+
+.menu-toggle-icon {
+  display: grid;
+  gap: 5px;
+  width: 18px;
+}
+
+.menu-toggle-icon span {
+  display: block;
+  height: 2px;
+  background: var(--c-orange);
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.tfg-nav[data-open="true"] .menu-toggle-icon span:first-child {
+  transform: translateY(3.5px) rotate(45deg);
+}
+
+.tfg-nav[data-open="true"] .menu-toggle-icon span:last-child {
+  transform: translateY(-3.5px) rotate(-45deg);
+}
+
+/* ---------- SCRIM ---------- */
+
+.nav-scrim {
+  display: none;
+}
+
+/* =========================================
+   COLLAPSED NAV (TABLET / MOBILE)
+========================================= */
+
+@media (max-width: 1279px) {
   .tfg-nav {
-    gap: 18px;
-    padding: 16px 28px;
+    gap: var(--space-4);
   }
 
   .tfg-logo {
-    width: 190px;
+    width: 156px;
   }
 
+  .tfg-nav .phone-in-bar {
+    margin-left: auto;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  /* Links become a drop-down panel under the bar */
   .tfg-nav .links {
-    gap: 10px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0;
+
+    max-height: calc(100svh - var(--nav-h));
+    overflow-y: auto;
+    padding: var(--space-2) 0 var(--space-5);
+
+    background: var(--c-nav);
+    border-bottom: 1px solid var(--c-orange);
+
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition:
+      opacity var(--dur) var(--ease-out),
+      transform var(--dur) var(--ease-out),
+      visibility 0s linear var(--dur);
+  }
+
+  .tfg-nav[data-open="true"] .links {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity var(--dur) var(--ease-out),
+      transform var(--dur) var(--ease-out);
   }
 
   .tfg-nav .links a {
-    font-size: 10px;
-    letter-spacing: 0.6px;
+    justify-content: flex-start;
+    max-width: none;
+
+    padding: var(--space-4) var(--gutter);
+
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-align: left;
+
+    border-top: 1px solid rgba(61, 107, 147, 0.4);
   }
 
-  .tfg-nav .phone {
-    font-size: 12px;
-  }
-}
-
-
-/* ---------- TABLET / MOBILE FALLBACK ----------
-   Nine nav items can no longer share one legible row,
-   so wrap the links onto their own centered row here. */
-
-@media (max-width: 900px) {
-  .tfg-nav {
-    flex-wrap: wrap;
-    row-gap: 16px;
-    padding: 18px 24px;
+  .tfg-nav .links a:first-child {
+    border-top: none;
   }
 
-  .tfg-logo {
-    width: 220px;
+  /* Indicator becomes a left-hand bar */
+  .tfg-nav .links a::after {
+    top: 0;
+    bottom: 0;
+    right: auto;
+    width: 3px;
+    height: auto;
+    transform: scaleY(0);
+    transform-origin: top;
   }
 
-  .tfg-nav .links {
-    order: 3;
-    width: 100%;
-    flex: none;
+  .tfg-nav .links a:hover::after,
+  .tfg-nav .links a.active::after {
+    transform: scaleY(1);
+  }
 
+  .tfg-nav .links .nav-cta {
+    align-self: stretch;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px 24px;
+
+    margin: var(--space-4) var(--gutter) 0;
+    padding: var(--space-4);
+
+    color: var(--c-navy);
+    background: var(--c-orange);
+    border-top: 1px solid var(--c-orange);
   }
 
-  .tfg-nav .links a {
-    flex: none;
-    font-size: 11px;
-    letter-spacing: 1.2px;
-  }
-}
-
-
-/* ---------- MOBILE ---------- */
-
-@media (max-width: 600px) {
-  .tfg-nav {
-    padding: 16px 16px;
-    row-gap: 14px;
+  .tfg-nav .links .nav-cta:hover,
+  .tfg-nav .links .nav-cta.active {
+    background: var(--c-orange-hover);
+    border-color: var(--c-orange-hover);
   }
 
-  .tfg-logo {
-    width: 200px;
+  .tfg-nav .links .phone-in-menu {
+    display: flex;
+    justify-content: center;
+    border-top: none;
+    padding-top: var(--space-5);
+    color: var(--c-orange-bright);
   }
 
-  .tfg-nav .phone {
+  .tfg-nav .links .phone-in-menu::after {
     display: none;
   }
 
-  .tfg-nav .links {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px 18px;
+  .nav-scrim {
+    display: block;
+    position: fixed;
+    inset: var(--nav-h) 0 0 0;
+    z-index: 999;
+
+    background: rgba(14, 42, 71, 0.55);
+
+    visibility: hidden;
+    opacity: 0;
+    transition:
+      opacity var(--dur) var(--ease-out),
+      visibility 0s linear var(--dur);
   }
 
-  .tfg-nav .links a {
-    font-size: 10px;
-    letter-spacing: 1px;
+  .nav-scrim[data-open="true"] {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity var(--dur) var(--ease-out);
+  }
+}
+
+/* ---------- SMALL MOBILE ---------- */
+
+@media (max-width: 600px) {
+  .tfg-logo {
+    width: 140px;
+  }
+
+  .tfg-nav .phone-in-bar {
+    display: none;
+  }
+
+  .menu-toggle {
+    margin-left: auto;
   }
 }

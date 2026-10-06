@@ -1,0 +1,79 @@
+/* =========================================
+   EYEBROW (shared label style)
+========================================= */
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--c-orange-ink);
+}
+
+.eyebrow::before {
+  content: "— ";
+  color: var(--c-orange);
+}
+
+/* =========================================
+   SECTION HEADER
+========================================= */
+
+.section-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-7);
+}
+
+.section-header-center {
+  align-items: center;
+  text-align: center;
+}
+
+.section-header-left {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.section-title {
+  max-width: 18em;
+
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0.2px;
+
+  color: var(--c-navy);
+}
+
+/* Accent words: <em> in a title is orange, not italic */
+.section-title em {
+  font-style: normal;
+  color: var(--c-orange);
+}
+
+.section-lead {
+  max-width: 60ch;
+
+  font-size: 17px;
+  line-height: 1.65;
+
+  color: var(--c-text-muted);
+}
+
+/* ---------- DARK TONE ---------- */
+
+.section-header-dark .eyebrow {
+  color: var(--c-steel);
+}
+
+.section-header-dark .section-title {
+  color: var(--c-white);
+}
+
+.section-header-dark .section-lead {
+  color: var(--c-mist);
+}

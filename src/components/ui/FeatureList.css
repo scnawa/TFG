@@ -1,0 +1,85 @@
+/* =========================================
+   FEATURE LIST
+========================================= */
+
+.feature-list {
+  list-style: none;
+  display: grid;
+  gap: var(--space-5) var(--space-7);
+}
+
+.feature-list-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.feature-list li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: var(--space-3);
+  align-items: start;
+}
+
+/* ---------- MARKERS ---------- */
+
+.feature-list-bullet .feature-list-marker {
+  width: 8px;
+  height: 8px;
+  margin-top: 8px;
+  background: var(--c-orange);
+}
+
+.feature-list-number .feature-list-marker {
+  padding-top: 3px;
+
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: 1px;
+
+  color: var(--c-orange-ink);
+}
+
+/* ---------- TEXT ---------- */
+
+.feature-list-label {
+  display: block;
+
+  font-size: var(--fs-body);
+  font-weight: 600;
+  line-height: 1.45;
+
+  color: var(--c-navy);
+}
+
+.feature-list-text {
+  margin-top: var(--space-1);
+
+  font-size: 15px;
+  line-height: 1.65;
+
+  color: var(--c-text-muted);
+}
+
+.feature-list-text::first-letter {
+  text-transform: uppercase;
+}
+
+/* ---------- DARK TONE ---------- */
+
+.feature-list-dark .feature-list-label {
+  color: var(--c-white);
+}
+
+.feature-list-dark .feature-list-text {
+  color: var(--c-mist);
+}
+
+.feature-list-dark.feature-list-number .feature-list-marker {
+  color: var(--c-orange-bright);
+}
+
+@media (max-width: 768px) {
+  .feature-list-cols-2 {
+    grid-template-columns: 1fr;
+  }
+}

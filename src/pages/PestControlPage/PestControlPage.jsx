@@ -1,6 +1,15 @@
-import { Link } from "react-router-dom";
-
 import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import Accordion from "../../components/ui/Accordion";
+import Button from "../../components/ui/Button";
+import CardGrid from "../../components/ui/CardGrid";
+import CtaBand from "../../components/ui/CtaBand";
+import FeatureSplit from "../../components/ui/FeatureSplit";
+import PageHero from "../../components/ui/PageHero";
+import Reveal from "../../components/ui/Reveal";
+import Section from "../../components/ui/Section";
+import SectionHeader from "../../components/ui/SectionHeader";
+import Steps from "../../components/ui/Steps";
 import "./PestControlPage.css";
 
 const HIGHLIGHTS = [
@@ -119,202 +128,172 @@ function PestControl() {
     <>
       <Navbar />
 
-      <main className="project-page pest-page">
-        {/* HERO */}
-        <section className="project-hero">
-          <p className="project-label">TOTAL FACILITY GROUP</p>
+      <main id="main">
+        <PageHero
+          title={
+            <>
+              STOP PESTS
+              <br />
+              BEFORE THEY <em>START.</em>
+            </>
+          }
+          lead="Professional pest management keeping workplaces, properties and facilities safe, hygienic and pest-free."
+        />
 
-          <h1>
-            STOP PESTS
-            <br />
-            BEFORE THEY <em>START.</em>
-          </h1>
-
-          <p className="project-description">
-            Professional pest management keeping workplaces, properties and
-            facilities safe, hygienic and pest-free.
-          </p>
-        </section>
-
-        {/* MAIN: WHAT IS PEST CONTROL */}
-        <section className="pest-section pest-centered">
-          <p className="pest-eyebrow">PEST MANAGEMENT</p>
-
-          <h2>
-            Does Your Business Need <em>Pest Control?</em>
-          </h2>
-
-          <p className="pest-lead">
-            You deserve more than set schedules and standard treatments.
-            Our pest control services identify, manage and prevent pest
-            problems across commercial and residential environments — we
-            don't just treat pest problems, we help stop them before they
-            start.
-          </p>
-
-          <figure className="pest-diagram">
-            <img
-              src="/images/pest control diagram.jfif"
-              alt="Warning signs for rodents, cockroaches and ants"
+        {/* WHAT IS PEST CONTROL */}
+        <Section>
+          <Reveal>
+            <SectionHeader
+              eyebrow="PEST MANAGEMENT"
+              title={
+                <>
+                  Does Your Business Need <em>Pest Control?</em>
+                </>
+              }
+              lead="You deserve more than set schedules and standard treatments. Our pest control services identify, manage and prevent pest problems across commercial and residential environments — we don't just treat pest problems, we help stop them before they start."
             />
-          </figure>
+
+            <figure className="pest-diagram">
+              <img
+                src="/images/pest control diagram.jfif"
+                alt="Warning signs for rodents, cockroaches and ants"
+              />
+            </figure>
+          </Reveal>
 
           <ul className="pest-checks">
-            {HIGHLIGHTS.map((text) => (
-              <li key={text}>{text}</li>
+            {HIGHLIGHTS.map((text, i) => (
+              <Reveal as="li" key={text} delay={i * 80}>
+                {text}
+              </Reveal>
             ))}
           </ul>
-        </section>
+        </Section>
 
         {/* PESTS WE MANAGE */}
-        <section className="pest-section pest-centered pest-section-tight">
-          <p className="pest-eyebrow">TARGET PESTS</p>
-          <h2>
-            Pests We <em>Manage</em>
-          </h2>
-
-          <div className="pest-cards">
-            {PESTS.map((pest, i) => (
-              <article className="pest-card" key={pest.title}>
-                <span className="pest-card-num">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3>{pest.title}</h3>
-                <p>{pest.text}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        {/* SPECIFIC: INTERIOR TREATMENTS */}
-        <section className="pest-feature">
-          <div className="pest-feature-inner">
-            <div className="pest-feature-card">
-              <p className="pest-eyebrow">INTERIOR TREATMENTS</p>
-
-              <h2>Targeted Treatments Inside Your Site</h2>
-
-              <p>
-                Cockroaches and other crawling insects thrive in kitchens,
-                storerooms and back-of-house areas. Our technicians work in
-                protective equipment to treat floors, skirtings, voids and
-                hidden harbourage points — using targeted products where
-                the activity is, not blanket sprays.
-              </p>
-
-              <p>
-                Work is planned around your trading hours, so your team and
-                customers can carry on as normal.
-              </p>
-
-              <Link to="/contact-page" className="pest-feature-link">
-                Book an inspection
-              </Link>
-            </div>
-
-            <img
-              className="pest-feature-image"
-              src="/images/pest control.jfif"
-              alt="Technician in protective gear treating a floor for cockroaches"
+        <Section tone="paper-2">
+          <Reveal>
+            <SectionHeader
+              eyebrow="TARGET PESTS"
+              title={
+                <>
+                  Pests We <em>Manage</em>
+                </>
+              }
             />
-          </div>
-        </section>
+          </Reveal>
+
+          <CardGrid items={PESTS} numbered />
+        </Section>
+
+        {/* INTERIOR TREATMENTS */}
+        <Section>
+          <FeatureSplit
+            reverse
+            media={
+              <img
+                src="/images/pest control.jfif"
+                alt="Technician in protective gear treating a floor for cockroaches"
+              />
+            }
+            eyebrow="INTERIOR TREATMENTS"
+            title="Targeted Treatments Inside Your Site"
+            action={
+              <Button to="/contact-page" arrow>
+                Book an inspection
+              </Button>
+            }
+          >
+            <p>
+              Cockroaches and other crawling insects thrive in kitchens,
+              storerooms and back-of-house areas. Our technicians work in
+              protective equipment to treat floors, skirtings, voids and
+              hidden harbourage points — using targeted products where
+              the activity is, not blanket sprays.
+            </p>
+
+            <p>
+              Work is planned around your trading hours, so your team and
+              customers can carry on as normal.
+            </p>
+          </FeatureSplit>
+        </Section>
 
         {/* INDUSTRIES */}
-        <section className="pest-industries">
-          <p className="pest-eyebrow">WHO WE HELP</p>
-          <h2>
-            Industries We <em>Support</em>
-          </h2>
+        <Section tone="paper-2">
+          <Reveal>
+            <SectionHeader
+              eyebrow="WHO WE HELP"
+              title={
+                <>
+                  Industries We <em>Support</em>
+                </>
+              }
+            />
+          </Reveal>
 
-          <div className="pest-tiles">
-            {INDUSTRIES.map(([title, text]) => (
-              <article className="pest-tile" key={title}>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </article>
-            ))}
-          </div>
-        </section>
+          <CardGrid items={INDUSTRIES.map(([title, text]) => ({ title, text }))} />
+        </Section>
 
         {/* PROCESS */}
-        <section className="pest-section pest-centered">
-          <p className="pest-eyebrow">OUR PROCESS</p>
-          <h2>
-            How We Protect Your Business <em>From Pests</em>
-          </h2>
+        <Section>
+          <Reveal>
+            <SectionHeader
+              eyebrow="OUR PROCESS"
+              title={
+                <>
+                  How We Protect Your Business <em>From Pests</em>
+                </>
+              }
+            />
+          </Reveal>
 
-          <div className="pest-steps">
-            {STEPS.map(([title, text], i) => (
-              <article className="pest-step" key={title}>
-                <span className="pest-step-num">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </article>
-            ))}
-          </div>
-        </section>
+          <Steps items={STEPS} />
+        </Section>
 
         {/* METHODS */}
-        <section className="pest-section pest-narrow pest-section-tight">
-          <p className="pest-eyebrow">HOW WE TREAT</p>
-          <h2>
-            Our Treatment <em>Methods</em>
-          </h2>
+        <Section tone="paper-2" width="narrow" spacing="tight">
+          <Reveal>
+            <SectionHeader
+              eyebrow="HOW WE TREAT"
+              title={
+                <>
+                  Our Treatment <em>Methods</em>
+                </>
+              }
+            />
 
-          <div className="pest-faq">
-            {METHODS.map((method) => (
-              <details className="pest-faq-item" key={method.q}>
-                <summary>{method.q}</summary>
-                <p>{method.a}</p>
-              </details>
-            ))}
-          </div>
-        </section>
+            <Accordion items={METHODS} />
+          </Reveal>
+        </Section>
 
         {/* FAQ */}
-        <section className="pest-section pest-narrow pest-section-tight">
-          <p className="pest-eyebrow">FAQ</p>
-          <h2>
-            Frequently Asked <em>Questions</em>
-          </h2>
+        <Section width="narrow">
+          <Reveal>
+            <SectionHeader
+              eyebrow="FAQ"
+              title={
+                <>
+                  Frequently Asked <em>Questions</em>
+                </>
+              }
+            />
 
-          <div className="pest-faq">
-            {FAQS.map((faq) => (
-              <details className="pest-faq-item" key={faq.q}>
-                <summary>{faq.q}</summary>
-                <p>{faq.a}</p>
-              </details>
-            ))}
-          </div>
-        </section>
+            <Accordion items={FAQS} />
+          </Reveal>
+        </Section>
 
-        {/* CTA */}
-        <section className="pest-cta">
-          <h2>
-            PESTS DON'T <em>WAIT.</em>
-          </h2>
-
-          <p>
-            Talk to us about an inspection and a pest management plan built
-            around your premises.
-          </p>
-
-          <Link to="/contact-page" className="pest-cta-button">
-            Contact TFG
-          </Link>
-        </section>
+        <CtaBand
+          title={
+            <>
+              PESTS DON&apos;T <em>WAIT.</em>
+            </>
+          }
+          text="Talk to us about an inspection and a pest management plan built around your premises."
+        />
       </main>
 
-      <footer className="pest-footer">
-        <span>
-          TOTAL FACILITY GROUP · COMMERCIAL FIT-OUT &amp; BUILDING SERVICES
-        </span>
-
-        <span>© 2026 TFG</span>
-      </footer>
+      <Footer />
     </>
   );
 }

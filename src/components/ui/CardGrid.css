@@ -1,0 +1,194 @@
+/* =========================================
+   CARD GRID
+   Cards share 1px hairlines, like cells on a
+   drawing sheet. Orange corner ticks extend
+   on hover.
+========================================= */
+
+.card-grid {
+  display: grid;
+  gap: 1px;
+
+  background: var(--c-line);
+  border: 1px solid var(--c-line);
+}
+
+.card-grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card-grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card-grid-cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* ---------- CARD ---------- */
+
+.tick-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: var(--space-6) var(--space-6) var(--space-7);
+
+  background: var(--c-paper);
+
+  /* Keeps the Reveal fade-in alongside the hover transition */
+  transition:
+    opacity 600ms var(--ease-out) var(--reveal-delay, 0ms),
+    transform 600ms var(--ease-out) var(--reveal-delay, 0ms),
+    background-color var(--dur) var(--ease-out);
+}
+
+.tick-card:hover {
+  background: var(--c-white);
+}
+
+.card-grid-center .tick-card {
+  align-items: center;
+  text-align: center;
+}
+
+/* Corner ticks */
+.tick-card::before,
+.tick-card::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 18px;
+  height: 18px;
+  transition:
+    width var(--dur) var(--ease-out),
+    height var(--dur) var(--ease-out);
+}
+
+.tick-card::before {
+  top: 14px;
+  left: 14px;
+  border-top: 2px solid var(--c-orange);
+  border-left: 2px solid var(--c-orange);
+}
+
+.tick-card::after {
+  right: 14px;
+  bottom: 14px;
+  border-right: 2px solid var(--c-orange);
+  border-bottom: 2px solid var(--c-orange);
+}
+
+.tick-card:hover::before,
+.tick-card:hover::after {
+  width: 30px;
+  height: 30px;
+}
+
+/* ---------- MEDIA ---------- */
+
+.tick-card-media {
+  width: 100%;
+  height: 180px;
+  margin-bottom: var(--space-5);
+  overflow: hidden;
+}
+
+.tick-card-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+
+.tick-card:hover .tick-card-media img {
+  transform: scale(1.04);
+}
+
+/* ---------- TEXT ---------- */
+
+.tick-card-code {
+  margin-bottom: var(--space-3);
+
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+
+  color: var(--c-orange-ink);
+}
+
+.tick-card-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+
+  color: var(--c-ink);
+}
+
+/* Orange rule under the title, extends on hover */
+.tick-card-title::after {
+  content: "";
+  display: block;
+
+  width: 36px;
+  height: 2px;
+  margin: var(--space-4) 0;
+
+  background: var(--c-orange);
+
+  transition: width var(--dur) var(--ease-out);
+}
+
+.card-grid-center .tick-card-title::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tick-card:hover .tick-card-title::after {
+  width: 60px;
+}
+
+.tick-card-text {
+  max-width: 34ch;
+
+  font-size: 15px;
+  line-height: 1.7;
+
+  color: var(--c-text-muted);
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 1024px) {
+  .card-grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .card-grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .card-grid-cols-2,
+  .card-grid-cols-3,
+  .card-grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .tick-card {
+    padding: var(--space-6) var(--space-5) var(--space-7);
+  }
+
+  .tick-card-media {
+    height: 200px;
+  }
+}

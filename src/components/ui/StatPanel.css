@@ -1,0 +1,78 @@
+/* =========================================
+   STAT PANEL
+========================================= */
+
+.stat-panel {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-5);
+
+  min-height: 380px;
+  padding: var(--space-8) var(--space-7);
+
+  border: 1px solid var(--c-line-dark);
+
+  /* Horizontal rules, like a title-block frame */
+  background-image:
+    linear-gradient(rgba(143, 173, 199, 0.3), rgba(143, 173, 199, 0.3)),
+    linear-gradient(rgba(143, 173, 199, 0.3), rgba(143, 173, 199, 0.3));
+  background-size: 100% 1px;
+  background-position: 0 64px, 0 calc(100% - 64px);
+  background-repeat: no-repeat;
+}
+
+.stat-panel::before,
+.stat-panel::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+}
+
+.stat-panel::before {
+  top: 12px;
+  left: 12px;
+  border-top: 2px solid var(--c-orange);
+  border-left: 2px solid var(--c-orange);
+}
+
+.stat-panel::after {
+  right: 12px;
+  bottom: 12px;
+  border-right: 2px solid var(--c-orange);
+  border-bottom: 2px solid var(--c-orange);
+}
+
+.stat-panel-label,
+.stat-panel-caption {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: 1.5px;
+}
+
+.stat-panel-label {
+  color: var(--c-steel);
+}
+
+.stat-panel-value {
+  font-family: var(--font-display);
+  font-size: clamp(88px, 10vw, 128px);
+  font-weight: 800;
+  line-height: 0.8;
+
+  color: var(--c-paper);
+}
+
+.stat-panel-caption {
+  color: var(--c-orange-bright);
+}
+
+@media (max-width: 600px) {
+  .stat-panel {
+    min-height: 300px;
+    padding: var(--space-8) var(--space-6);
+  }
+}

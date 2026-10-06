@@ -1,9 +1,17 @@
-import { useState } from 'react';
-
 import Navbar from '../../components/Navbar';
-import './CleaningPage.css';
+import Footer from '../../components/Footer';
+import CardGrid from '../../components/ui/CardGrid';
+import CtaBand from '../../components/ui/CtaBand';
+import FeatureList from '../../components/ui/FeatureList';
+import FeatureSplit from '../../components/ui/FeatureSplit';
+import PageHero from '../../components/ui/PageHero';
+import Reveal from '../../components/ui/Reveal';
+import Section from '../../components/ui/Section';
+import SectionHeader from '../../components/ui/SectionHeader';
+import StatPanel from '../../components/ui/StatPanel';
 
-// Add an image path (e.g. '/images/window-cleaning.jpg') to replace a placeholder.
+// Add an image path (e.g. '/images/window-cleaning.jpg') to a service to show a photo.
+
 const CLEANING_SERVICES = [
     {
         title: 'Regular Cleaning',
@@ -37,174 +45,122 @@ const CLEANING_SERVICES = [
     },
 ];
 
+// What TFG delivers for Coles.
+const COLES_SERVICES = [
+    ['Strip & seal', 'worn floor finishes taken back to the surface and resealed for a clean, even, protected floor.'],
+    ['Cutbacks', 'scheduled cutbacks that restore shine between full strips, with less downtime for the store.'],
+    ['Ad hoc works', 'responsive call-outs for one-off and unplanned jobs, so issues are sorted before they affect trade.'],
+    ['Shopfitting & refreshes', 'fit-out and refresh works delivered after hours, with stores ready to trade the next morning.'],
+];
+
 function CleaningPage() {
-
     return (
-        <div className="cleaning-page">
-        <Navbar />
+        <>
+            <Navbar />
 
-        <main className="cleaning-main">
-           {/* HERO */}
-            <section className="cleaning-hero">
-            <div className="cleaning-hero-content">
-                <p className="cleaning-eyebrow">OUR SERVICES</p>
-
-                <h1 className="cleaning-title">
-                CLEANING.
-                <br />
-                <span>STRIP & SEAL. CUTBACKS.</span>
-                </h1>
-
-                <p className="cleaning-description">
-                From routine commercial cleaning to floor strip and seal and
-                scheduled cutbacks, we keep your site clean, presentable and
-                well maintained — reliable service you can count on.
-                </p>
-            </div>
-            </section>
-
-            {/* STRIP & SEAL / CUTBACKS BLURB */}
-            <section className="cleaning-feature">
-            <div className="cleaning-container cleaning-feature-inner">
-                <img
-                src="/images/Strip and Seal.jpg"
-                alt="Commercial floor being stripped and sealed"
-                className="cleaning-feature-image"
+            <main id="main">
+                <PageHero
+                    eyebrow="OUR SERVICES"
+                    title={
+                        <>
+                            CLEANING.
+                            <br />
+                            <em>STRIP &amp; SEAL. CUTBACKS.</em>
+                        </>
+                    }
+                    lead="From routine commercial cleaning to floor strip and seal and scheduled cutbacks, we keep your site clean, presentable and well maintained — reliable service you can count on."
                 />
 
-                <div className="cleaning-feature-text">
-                <p className="cleaning-section-eyebrow">FLOOR CARE</p>
+                {/* STRIP & SEAL / CUTBACKS */}
+                <Section>
+                    <FeatureSplit
+                        media={
+                            <img
+                                src="/images/Strip and Seal.jpg"
+                                alt="Commercial floor being stripped and sealed"
+                            />
+                        }
+                        eyebrow="FLOOR CARE"
+                        title={
+                            <>
+                                Strip &amp; Seal. <em>Cutbacks.</em>
+                            </>
+                        }
+                    >
+                        <p>
+                            Over time, foot traffic and trolleys wear down floor
+                            finishes. A strip and seal removes the old, worn coating
+                            right back to the surface, then applies fresh coats of
+                            sealer for a clean, even, protected floor.
+                        </p>
 
-                <h2>Strip &amp; Seal. Cutbacks.</h2>
+                        <p>
+                            Between full strips, a cutback removes the scuffed top
+                            layer of finish and re-coats it — restoring shine and
+                            extending the life of your floor with less downtime.
+                        </p>
+                    </FeatureSplit>
+                </Section>
 
-                <p>
-                    Over time, foot traffic and trolleys wear down floor
-                    finishes. A strip and seal removes the old, worn coating
-                    right back to the surface, then applies fresh coats of
-                    sealer for a clean, even, protected floor.
-                </p>
+                {/* SERVICES GRID */}
+                <Section tone="paper-2">
+                    <Reveal>
+                        <SectionHeader
+                            eyebrow="WHAT WE OFFER"
+                            title={
+                                <>
+                                    Our Cleaning <em>Services</em>
+                                </>
+                            }
+                        />
+                    </Reveal>
 
-                <p>
-                    Between full strips, a cutback removes the scuffed top
-                    layer of finish and re-coats it — restoring shine and
-                    extending the life of your floor with less downtime.
-                </p>
-                </div>
-            </div>
-            </section>
+                    <CardGrid items={CLEANING_SERVICES} />
+                </Section>
 
-            {/* SERVICES GRID */}
-            <section className="cleaning-services">
-            <div className="cleaning-container">
-                <div className="cleaning-services-header">
-                <p className="cleaning-section-eyebrow">WHAT WE OFFER</p>
+                {/* COLES PARTNERSHIP */}
+                <Section tone="ink">
+                    <div className="section-split">
+                        <Reveal>
+                            <SectionHeader
+                                align="left"
+                                tone="dark"
+                                eyebrow="COLES PARTNERSHIP"
+                                title={
+                                    <>
+                                        Trusted Partner for <em>Coles</em>
+                                    </>
+                                }
+                                lead="Coles trusts TFG to keep its stores clean, presentable and ready to trade. We bring more than 30 years of industry experience to every store we look after — from floor care through to shopfitting and refreshes."
+                            />
 
-                <h2>Our Cleaning Services</h2>
-                </div>
+                            <FeatureList items={COLES_SERVICES} marker="number" tone="dark" />
+                        </Reveal>
 
-                <div className="cleaning-services-grid">
-                {CLEANING_SERVICES.map((service) => (
-                    <article className="cleaning-service-card" key={service.title}>
-                    <div className="cleaning-service-media">
-                        {service.image ? (
-                        <img src={service.image} alt={service.title} />
-                        ) : (
-                        <div className="cleaning-service-placeholder" aria-hidden="true" />
-                        )}
+                        <Reveal delay={120}>
+                            <StatPanel
+                                label="TFG / INDUSTRY EXPERIENCE"
+                                value="30+"
+                                caption="YEARS OF EXPERIENCE"
+                            />
+                        </Reveal>
                     </div>
+                </Section>
 
-                    <div className="cleaning-service-body">
-                        <h3>{service.title}</h3>
-                        <p>{service.text}</p>
-                    </div>
-                    </article>
-                ))}
-                </div>
-            </div>
-            </section>
+                <CtaBand
+                    eyebrow="FLOOR CARE & CLEANING"
+                    title={
+                        <>
+                            KEEP YOUR SITE <em>TRADE-READY.</em>
+                        </>
+                    }
+                    text="Talk to us about strip and seal, cutbacks or a regular cleaning schedule built around your trading hours."
+                />
+            </main>
 
-            {/* STATS / EXPERIENCE */}
-            <section className="cleaning-experience">
-            <div className="cleaning-container">
-                <div className="cleaning-experience-content">
-                <p className="cleaning-section-eyebrow">LOREM IPSUM</p>
-
-                <h2>
-                    Trusted Partner for Coles
-                </h2>
-
-                <p className="cleaning-experience-copy">
-                    Neque porro quisquam est, qui dolorem ipsum quia dolor
-                    sit amet, consectetur, adipisci velit, sed quia non
-                    numquam eius modi tempora incidunt.
-                </p>
-
-                <div className="cleaning-experience-list">
-                    <div className="cleaning-experience-item">
-                    <span>01</span>
-                    <p>Lorem ipsum dolor sit amet consectetur</p>
-                    </div>
-
-                    <div className="cleaning-experience-item">
-                    <span>02</span>
-                    <p>Ut enim ad minim veniam quis nostrud</p>
-                    </div>
-
-                    <div className="cleaning-experience-item">
-                    <span>03</span>
-                    <p>Duis aute irure dolor in reprehenderit</p>
-                    </div>
-
-                    <div className="cleaning-experience-item">
-                    <span>04</span>
-                    <p>Excepteur sint occaecat cupidatat</p>
-                    </div>
-                </div>
-                </div>
-
-                <div className="cleaning-experience-panel">
-                <div className="cleaning-panel-line cleaning-panel-line-top"></div>
-
-                <p>LOREM / IPSUM DOLOR</p>
-
-                <strong>15+</strong>
-
-                <span>YEARS OF WORK</span>
-
-                <div className="cleaning-panel-line cleaning-panel-line-bottom"></div>
-                </div>
-            </div>
-            </section>
-
-            {/* CTA */}
-            <section className="cleaning-cta">
-            <div className="cleaning-container">
-                <p className="cleaning-section-eyebrow">LOREM IPSUM</p>
-
-                <h2>
-                Dolor sit amet
-                <br />
-                consectetur?
-                </h2>
-
-                <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna
-                aliqua.
-                </p>
-            </div>
-            </section>
-        </main>
-
-        <footer className="cleaning-footer">
-            <span>
-            TOTAL FACILITY GROUP · COMMERCIAL FIT-OUT &amp; BUILDING SERVICES
-            </span>
-
-            <span>© 2026 TFG</span>
-        </footer>
-        </div>
+            <Footer />
+        </>
     );
-    }
+}
 
-    export default CleaningPage;
+export default CleaningPage;

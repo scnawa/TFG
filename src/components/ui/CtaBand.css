@@ -1,0 +1,88 @@
+/* =========================================
+   CTA BAND
+========================================= */
+
+.cta-band {
+  padding: var(--space-9) var(--gutter);
+
+  background-color: var(--c-navy);
+  background-image: var(--blueprint-grid);
+  border-top: 1px solid var(--c-line-dark);
+
+  text-align: center;
+}
+
+.cta-band-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.cta-band .eyebrow {
+  color: var(--c-steel);
+}
+
+.cta-band-title {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+
+  color: var(--c-white);
+}
+
+.cta-band-title em {
+  font-style: normal;
+  color: var(--c-orange);
+}
+
+.cta-band-text {
+  max-width: 54ch;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--c-mist);
+}
+
+.cta-band-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-5) var(--space-6);
+  margin-top: var(--space-4);
+}
+
+.cta-band-phone {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 1.5px;
+  text-decoration: none;
+
+  color: var(--c-steel);
+}
+
+.cta-band-phone span {
+  color: var(--c-orange-bright);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.cta-band-phone:hover span {
+  color: var(--c-white);
+}
+
+@media (max-width: 600px) {
+  .cta-band {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-8);
+  }
+
+  .cta-band-actions {
+    flex-direction: column;
+  }
+}

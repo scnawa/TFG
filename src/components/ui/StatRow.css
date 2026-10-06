@@ -1,0 +1,73 @@
+/* =========================================
+   STAT ROW
+========================================= */
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1px;
+
+  background: var(--c-line);
+  border: 1px solid var(--c-line);
+}
+
+.stat-row-item {
+  display: flex;
+  flex-direction: column-reverse; /* value reads first, label is the <dt> */
+  justify-content: flex-end;
+  gap: var(--space-3);
+
+  padding: var(--space-6) var(--space-5);
+
+  background: var(--c-paper);
+}
+
+.stat-row-value {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 5vw, 64px);
+  font-weight: 800;
+  line-height: 0.9;
+
+  color: var(--c-navy);
+}
+
+/* Orange tick under each figure */
+.stat-row-value::after {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 2px;
+  margin-top: var(--space-4);
+  background: var(--c-orange);
+}
+
+/* Figure beside label on phones to keep the row compact */
+@media (max-width: 600px) {
+  .stat-row-item {
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: var(--space-5);
+    padding: var(--space-5);
+  }
+
+  .stat-row-value {
+    flex: 0 0 88px;
+    font-size: 44px;
+  }
+
+  .stat-row-value::after {
+    display: none;
+  }
+}
+
+.stat-row-label {
+  max-width: 24ch;
+
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+
+  color: var(--c-text-muted);
+}

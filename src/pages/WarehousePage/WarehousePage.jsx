@@ -1,7 +1,14 @@
-import { Link } from "react-router-dom";
-
 import Navbar from "../../components/Navbar";
-import "./WarehousePage.css";
+import Footer from "../../components/Footer";
+import Button from "../../components/ui/Button";
+import CardGrid from "../../components/ui/CardGrid";
+import CtaBand from "../../components/ui/CtaBand";
+import FeatureList from "../../components/ui/FeatureList";
+import FeatureSplit from "../../components/ui/FeatureSplit";
+import PageHero from "../../components/ui/PageHero";
+import Reveal from "../../components/ui/Reveal";
+import Section from "../../components/ui/Section";
+import SectionHeader from "../../components/ui/SectionHeader";
 
 const CLEANING_POINTS = [
   {
@@ -70,180 +77,149 @@ function Warehouse() {
     <>
       <Navbar />
 
-      <main className="project-page warehouse-page">
-        {/* HERO */}
-        <section className="project-hero">
-          <p className="project-label">TOTAL FACILITY GROUP</p>
+      <main id="main">
+        <PageHero
+          title={
+            <>
+              WAREHOUSE SERVICES,
+              <br />
+              KEPT <em>MOVING.</em>
+            </>
+          }
+          lead="From floor to fleet — Total Facility Group keeps warehouses and distribution centres clean, well maintained and running, with Battery Bull forklift battery exchange to keep your fleet moving too."
+        />
 
-          <h1>
-            WAREHOUSE SERVICES,
-            <br />
-            KEPT <em>MOVING.</em>
-          </h1>
-
-          <p className="project-description">
-            From floor to fleet — Total Facility Group keeps warehouses and
-            distribution centres clean, well maintained and running, with
-            Battery Bull forklift battery exchange to keep your fleet moving
-            too.
-          </p>
-        </section>
-
-        {/* CLEANING & MAINTENANCE FEATURE */}
-        <section className="wh-feature">
-          <div className="wh-feature-inner">
-            <img
-              className="wh-image"
-              src="/images/warehouse cleaning.jfif"
-              alt="Clean warehouse interior with racking and loading area"
-            />
-
-            <div className="wh-feature-text">
-              <p className="wh-eyebrow">CLEANING &amp; MAINTENANCE</p>
-
-              <h2>
+        {/* CLEANING & MAINTENANCE */}
+        <Section>
+          <FeatureSplit
+            media={
+              <img
+                src="/images/warehouse cleaning.jfif"
+                alt="Clean warehouse interior with racking and loading area"
+              />
+            }
+            eyebrow="CLEANING & MAINTENANCE"
+            title={
+              <>
                 Warehouses That Stay <em>Work-Ready</em>
-              </h2>
+              </>
+            }
+          >
+            <p>
+              Warehouse floors, racking and loading areas take a daily
+              beating from forklifts, pallets and stock movement. Our
+              cleaning and maintenance teams keep facilities safe, compliant
+              and presentable — from routine floor care to scheduled
+              maintenance that stops small issues becoming costly downtime.
+            </p>
 
-              <p>
-                Warehouse floors, racking and loading areas take a daily
-                beating from forklifts, pallets and stock movement. Our
-                cleaning and maintenance teams keep facilities safe, compliant
-                and presentable — from routine floor care to scheduled
-                maintenance that stops small issues becoming costly downtime.
-              </p>
+            <p>
+              We work around your operating hours and despatch schedules, so
+              cleaning and maintenance never gets in the way of picking,
+              packing and despatch.
+            </p>
+          </FeatureSplit>
+        </Section>
 
-              <p>
-                We work around your operating hours and despatch schedules, so
-                cleaning and maintenance never gets in the way of picking,
-                packing and despatch.
-              </p>
-            </div>
-          </div>
-        </section>
+        <Section tone="paper-2">
+          <Reveal>
+            <SectionHeader
+              eyebrow="WHAT WE COVER"
+              title={
+                <>
+                  Cleaning &amp; <em>Maintenance</em>
+                </>
+              }
+            />
+          </Reveal>
 
-        {/* CLEANING CARDS */}
-        <section className="wh-section wh-centered">
-          <p className="wh-eyebrow">WHAT WE COVER</p>
-          <h2>
-            Cleaning &amp; <em>Maintenance</em>
-          </h2>
+          <CardGrid items={CLEANING_POINTS} numbered />
+        </Section>
 
-          <div className="wh-cards">
-            {CLEANING_POINTS.map((point, i) => (
-              <article className="wh-card" key={point.title}>
-                <span className="wh-card-num">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3>{point.title}</h3>
-                <p>{point.text}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        {/* BATTERY BULL FEATURE */}
-        <section className="wh-feature wh-feature-reverse">
-          <div className="wh-feature-inner">
-            <div className="wh-feature-text">
-              <p className="wh-eyebrow">BATTERY BULL</p>
-
-              <h2>
-                Forklift Battery Changes, <em>Cut in Half</em>
-              </h2>
-
-              <p>
-                For sites running multiple shifts, changing forklift
-                batteries manually costs time and puts operators at risk.
-                Battery Bull is our man-aboard battery exchange system,
-                purpose-built to pull and replace batteries quickly, safely
-                and with minimal disruption to your operation.
-              </p>
-
-              <p>
-                Converting from a manual, pallet-jack or narrow-aisle changer
-                to Battery Bull can cut battery change times in half —
-                keeping your fleet on the floor and your operation moving.
-              </p>
-
-              <Link to="/battery-bull" className="wh-feature-link">
-                Learn more about Battery Bull
-              </Link>
-            </div>
-
-            <div className="wh-video">
+        {/* BATTERY BULL */}
+        <Section>
+          <FeatureSplit
+            reverse
+            media={
               <iframe
                 src="https://www.youtube.com/embed/hKZb7Rk81oM"
                 title="Battery Bull forklift battery exchange"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
+                loading="lazy"
               />
-            </div>
-          </div>
-        </section>
+            }
+            eyebrow="BATTERY BULL"
+            title={
+              <>
+                Forklift Battery Changes, <em>Cut in Half</em>
+              </>
+            }
+            action={
+              <Button to="/battery-bull" variant="outline" arrow>
+                Learn more about Battery Bull
+              </Button>
+            }
+          >
+            <p>
+              For sites running multiple shifts, changing forklift
+              batteries manually costs time and puts operators at risk.
+              Battery Bull is our man-aboard battery exchange system,
+              purpose-built to pull and replace batteries quickly, safely
+              and with minimal disruption to your operation.
+            </p>
 
-        {/* BATTERY BULL CARDS */}
-        <section className="wh-section wh-centered">
-          <p className="wh-eyebrow">WHY BATTERY BULL</p>
-          <h2>
-            Built for <em>Fleet Operations</em>
-          </h2>
+            <p>
+              Converting from a manual, pallet-jack or narrow-aisle changer
+              to Battery Bull can cut battery change times in half —
+              keeping your fleet on the floor and your operation moving.
+            </p>
+          </FeatureSplit>
+        </Section>
 
-          <div className="wh-cards">
-            {BATTERY_POINTS.map((point, i) => (
-              <article className="wh-card" key={point.title}>
-                <span className="wh-card-num">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3>{point.title}</h3>
-                <p>{point.text}</p>
-              </article>
-            ))}
-          </div>
-        </section>
+        <Section tone="paper-2">
+          <Reveal>
+            <SectionHeader
+              eyebrow="WHY BATTERY BULL"
+              title={
+                <>
+                  Built for <em>Fleet Operations</em>
+                </>
+              }
+            />
+          </Reveal>
+
+          <CardGrid items={BATTERY_POINTS} numbered />
+        </Section>
 
         {/* WHY TFG */}
-        <section className="wh-panel">
-          <div className="wh-panel-inner">
-            <p className="wh-eyebrow">WHY TFG</p>
-            <h2>
-              Why Choose <em>Total Facility Group</em>
-            </h2>
+        <Section tone="ink">
+          <Reveal>
+            <SectionHeader
+              tone="dark"
+              eyebrow="WHY TFG"
+              title={
+                <>
+                  Why Choose <em>Total Facility Group</em>
+                </>
+              }
+            />
 
-            <ul className="wh-list wh-list-bullets wh-list-cols">
-              {REASONS.map(([label, text]) => (
-                <li key={label}>
-                  <strong>{label}</strong> — {text}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
+            <FeatureList items={REASONS} columns={2} tone="dark" />
+          </Reveal>
+        </Section>
 
-        {/* CTA */}
-        <section className="wh-cta">
-          <h2>
-            KEEP YOUR WAREHOUSE <em>MOVING.</em>
-          </h2>
-
-          <p>
-            Talk to us about a site assessment and a warehouse cleaning,
-            maintenance or Battery Bull plan built around your operation.
-          </p>
-
-          <Link to="/contact-page" className="wh-cta-button">
-            Contact TFG
-          </Link>
-        </section>
+        <CtaBand
+          title={
+            <>
+              KEEP YOUR WAREHOUSE <em>MOVING.</em>
+            </>
+          }
+          text="Talk to us about a site assessment and a warehouse cleaning, maintenance or Battery Bull plan built around your operation."
+        />
       </main>
 
-      <footer className="wh-footer">
-        <span>
-          TOTAL FACILITY GROUP · COMMERCIAL FIT-OUT &amp; BUILDING SERVICES
-        </span>
-
-        <span>© 2026 TFG</span>
-      </footer>
+      <Footer />
     </>
   );
 }

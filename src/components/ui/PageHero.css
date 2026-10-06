@@ -1,0 +1,78 @@
+/* =========================================
+   PAGE HERO
+========================================= */
+
+.page-hero {
+  padding: var(--space-9) var(--gutter) var(--space-9);
+
+  background-color: var(--c-navy);
+  background-image: var(--blueprint-grid);
+
+  text-align: center;
+}
+
+.page-hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.page-hero .eyebrow {
+  font-size: 13px;
+  color: var(--c-steel);
+}
+
+.page-hero-title {
+  max-width: 14em;
+  margin-top: var(--space-5);
+
+  font-family: var(--font-display);
+  font-size: clamp(44px, 7vw, 96px);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+
+  color: var(--c-white);
+}
+
+.page-hero-title em {
+  font-style: normal;
+  color: var(--c-orange);
+}
+
+.page-hero-lead {
+  max-width: 620px;
+  margin-top: var(--space-5);
+
+  font-size: var(--fs-lead);
+  line-height: 1.65;
+
+  color: var(--c-mist);
+}
+
+.page-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-5);
+  margin-top: var(--space-7);
+}
+
+@media (max-width: 600px) {
+  .page-hero {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-8);
+  }
+
+  .page-hero .eyebrow {
+    font-size: var(--fs-micro);
+  }
+
+  .page-hero-lead {
+    font-size: var(--fs-body);
+  }
+}

@@ -1,0 +1,65 @@
+/* =========================================
+   STEPS
+========================================= */
+
+.steps {
+  list-style: none;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-7) var(--space-6);
+}
+
+.step {
+  position: relative;
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--c-line);
+}
+
+/* Orange tick where each step meets the line */
+.step::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 0;
+
+  width: 2px;
+  height: 13px;
+
+  background: var(--c-orange);
+}
+
+.step-num {
+  display: block;
+  margin-bottom: var(--space-3);
+
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+
+  color: var(--c-orange-ink);
+}
+
+.step-title {
+  margin-bottom: var(--space-3);
+
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+
+  color: var(--c-ink);
+}
+
+.step-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--c-text-muted);
+}
+
+.step-text::first-letter {
+  text-transform: uppercase;
+}

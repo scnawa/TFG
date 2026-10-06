@@ -1,0 +1,94 @@
+/* =========================================
+   FEATURE SPLIT
+========================================= */
+
+.feature-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.feature-split-reverse .feature-split-media {
+  order: 2;
+}
+
+/* ---------- MEDIA ---------- */
+
+.feature-split-media {
+  position: relative;
+}
+
+/* Drawing-sheet corner ticks, offset outside the image */
+.feature-split-media::before,
+.feature-split-media::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 22px;
+  height: 22px;
+  pointer-events: none;
+}
+
+.feature-split-media::before {
+  top: -10px;
+  left: -10px;
+  border-top: 2px solid var(--c-orange);
+  border-left: 2px solid var(--c-orange);
+}
+
+.feature-split-media::after {
+  right: -10px;
+  bottom: -10px;
+  border-right: 2px solid var(--c-orange);
+  border-bottom: 2px solid var(--c-orange);
+}
+
+.feature-split-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.feature-split-media iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  background: var(--c-ink);
+}
+
+/* ---------- COPY ---------- */
+
+.feature-split-body .section-header {
+  margin-bottom: var(--space-5);
+}
+
+.feature-split-copy {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.feature-split-copy p {
+  font-size: var(--fs-body);
+  line-height: 1.75;
+  color: var(--c-text-muted);
+}
+
+.feature-split-action {
+  margin-top: var(--space-6);
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 900px) {
+  .feature-split {
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+  }
+
+  .feature-split-reverse .feature-split-media {
+    order: 0;
+  }
+}

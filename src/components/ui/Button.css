@@ -1,0 +1,92 @@
+/* =========================================
+   BUTTON
+========================================= */
+
+.btn {
+  --btn-tilt: 0deg;
+  --btn-shift: 0px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+
+  min-height: 48px;
+  padding: 14px 28px;
+
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: var(--tracking-label);
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  border: 1px solid transparent;
+  cursor: pointer;
+
+  transform: rotate(var(--btn-tilt)) translate(var(--btn-shift), var(--btn-shift));
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.btn-tilt {
+  --btn-tilt: -1.5deg;
+}
+
+/* ---------- PRIMARY: the orange "stamp" ---------- */
+
+.btn-primary {
+  color: var(--c-on-accent);
+  background: var(--c-orange);
+  border-color: var(--c-on-accent);
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.18);
+}
+
+.btn-primary:hover {
+  --btn-shift: -2px;
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.22);
+}
+
+.btn-primary:active {
+  --btn-shift: 1px;
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.18);
+}
+
+/* ---------- OUTLINE ---------- */
+
+.btn-outline.btn-on-light {
+  color: var(--c-navy);
+  border-color: var(--c-navy);
+}
+
+.btn-outline.btn-on-light:hover {
+  color: var(--c-white);
+  background: var(--c-navy);
+}
+
+.btn-outline.btn-on-dark {
+  color: var(--c-white);
+  border-color: var(--c-line-dark);
+}
+
+.btn-outline.btn-on-dark:hover {
+  border-color: var(--c-orange);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* ---------- ARROW ---------- */
+
+.btn-arrow {
+  display: inline-block;
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
