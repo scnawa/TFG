@@ -413,6 +413,10 @@
     flex: none;
   }
 
+  .fm-image {
+    flex: none;
+  }
+
   .fm-placeholder {
     flex: none;
     height: 280px;

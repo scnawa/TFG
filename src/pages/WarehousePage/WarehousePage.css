@@ -445,6 +445,10 @@
     flex: none;
   }
 
+  .wh-image {
+    flex: none;
+  }
+
   .wh-placeholder {
     height: 280px;
   }
